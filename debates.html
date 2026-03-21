@@ -25,17 +25,8 @@
     </ul>
   </nav>
 
-  <!-- Main layout -->
+  <!-- Main layout (full width, no sidebar) -->
   <div class="debates-layout">
-
-    <!-- Sidebar -->
-    <aside class="debates-sidebar" id="debates-sidebar" aria-label="Debate day navigation">
-      <div class="sidebar-header">
-        <h2>All Sessions</h2>
-      </div>
-      <!-- Sidebar day list is built by debates.js -->
-      <div id="sidebar-list"></div>
-    </aside>
 
     <!-- Content area -->
     <main class="debates-content" id="debates-content" role="main">
@@ -64,28 +55,10 @@
             <p class="day-counter" id="day-counter"></p>
             <div id="day-notable-badge" class="day-notable-badge" style="display:none;"></div>
             <h1 class="day-title" id="day-title"></h1>
-
-            <!-- Attendees collapsible -->
-            <div id="attendees-section" style="display:none;">
-              <button class="attendees-toggle" id="attendees-toggle" aria-expanded="false" aria-controls="attendees-body">
-                <span class="attendees-toggle__icon" aria-hidden="true">&#9658;</span>
-                Delegates Present
-              </button>
-              <div class="attendees-body" id="attendees-body" role="region" aria-labelledby="attendees-toggle"></div>
-            </div>
           </header>
 
           <!-- Debate body -->
           <article class="debate-body" id="debate-body" aria-live="polite"></article>
-
-          <!-- Footnotes collapsible -->
-          <div class="footnotes-section" id="footnotes-section" style="display:none;">
-            <button class="footnotes-toggle" id="footnotes-toggle" aria-expanded="false" aria-controls="footnotes-body">
-              <span class="footnotes-toggle__icon" aria-hidden="true">&#9658;</span>
-              <span id="footnotes-count">Editorial Notes</span>
-            </button>
-            <div class="footnotes-body" id="footnotes-body" role="region" aria-labelledby="footnotes-toggle"></div>
-          </div>
 
           <!-- Prev / Next navigation -->
           <nav class="day-nav" aria-label="Previous and next debate days">
@@ -108,9 +81,13 @@
 
   <!-- Timeline bar (fixed bottom) -->
   <div class="timeline-bar" id="timeline-bar" role="navigation" aria-label="Convention dates timeline">
-    <div class="timeline-inner" id="timeline-inner">
-      <!-- Built dynamically by debates.js -->
+    <button class="timeline-scroll-btn timeline-scroll-btn--left" id="timeline-scroll-left" aria-label="Scroll timeline left">&#8249;</button>
+    <div class="timeline-scrollable" id="timeline-scrollable">
+      <div class="timeline-inner" id="timeline-inner">
+        <!-- Built dynamically by debates.js -->
+      </div>
     </div>
+    <button class="timeline-scroll-btn timeline-scroll-btn--right" id="timeline-scroll-right" aria-label="Scroll timeline right">&#8250;</button>
   </div>
 
   <script src="data/debates-bundle.js"></script>

@@ -78,8 +78,7 @@
 
   /* Layout */
   --content-max-width: 780px;
-  --sidebar-width:     260px;
-  --timeline-height:   72px;
+  --timeline-height:   88px;
   --nav-height:        56px;
 
   /* Transitions */
@@ -566,94 +565,7 @@ button {
   overflow: hidden;
 }
 
-/* ============================================================
-   9. Debates Sidebar
-   ============================================================ */
-.debates-sidebar {
-  width: var(--sidebar-width);
-  flex-shrink: 0;
-  background: var(--color-parchment-dark);
-  border-right: 1px solid var(--color-border-light);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border) transparent;
-}
-
-.sidebar-header {
-  padding: var(--space-5) var(--space-4) var(--space-3);
-  border-bottom: 1px solid var(--color-border-light);
-  position: sticky;
-  top: 0;
-  background: var(--color-parchment-dark);
-  z-index: 5;
-}
-
-.sidebar-header h2 {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.sidebar-month {
-  padding: var(--space-4) 0 var(--space-2);
-}
-
-.sidebar-month__label {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-federal-gold-dim);
-  padding: 0 var(--space-4) var(--space-2);
-  display: block;
-}
-
-.sidebar-day {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: var(--space-2) var(--space-4);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  background: none;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  border-left: 2px solid transparent;
-  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
-  gap: var(--space-2);
-}
-.sidebar-day:hover {
-  background: var(--color-parchment-aged);
-  color: var(--color-text-primary);
-}
-.sidebar-day.active {
-  background: rgba(43,72,120,0.08);
-  color: var(--color-federal-blue);
-  border-left-color: var(--color-federal-blue);
-  font-weight: 600;
-}
-
-.sidebar-day__notable-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-federal-gold);
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
-@media (max-width: 900px) {
-  .debates-sidebar {
-    display: none;
-  }
-}
+/* Sidebar removed — navigation is via the bottom timeline only */
 
 /* ============================================================
    10. Debates Content Area
@@ -729,49 +641,7 @@ button {
   font-size: 10px;
 }
 
-/* Attendees collapsible */
-.attendees-toggle {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: var(--space-2) 0;
-  transition: color var(--transition-fast);
-}
-.attendees-toggle:hover {
-  color: var(--color-text-primary);
-}
-
-.attendees-toggle__icon {
-  font-size: 10px;
-  transition: transform var(--transition-base);
-  display: inline-block;
-}
-.attendees-toggle.open .attendees-toggle__icon {
-  transform: rotate(90deg);
-}
-
-.attendees-body {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  line-height: var(--leading-prose);
-  color: var(--color-text-secondary);
-  background: var(--color-parchment-dark);
-  border: 1px solid var(--color-border-light);
-  border-radius: 4px;
-  padding: var(--space-4);
-  margin-top: var(--space-2);
-  display: none;
-}
-.attendees-body.open {
-  display: block;
-}
+/* Attendees section removed */
 
 /* ============================================================
    12. Debate Body Typography
@@ -885,74 +755,7 @@ button {
   display: none;
 }
 
-/* ============================================================
-   13. Footnotes Section
-   ============================================================ */
-.footnotes-section {
-  margin-top: var(--space-10);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border-light);
-}
-
-.footnotes-toggle {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: var(--space-2) 0;
-  transition: color var(--transition-fast);
-}
-.footnotes-toggle:hover {
-  color: var(--color-text-primary);
-}
-
-.footnotes-toggle__icon {
-  font-size: 10px;
-  transition: transform var(--transition-base);
-  display: inline-block;
-}
-.footnotes-toggle.open .footnotes-toggle__icon {
-  transform: rotate(90deg);
-}
-
-.footnotes-body {
-  margin-top: var(--space-4);
-  display: none;
-}
-.footnotes-body.open {
-  display: block;
-}
-
-.footnote-item {
-  display: flex;
-  gap: var(--space-3);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  line-height: var(--leading-normal);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-3);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--color-border-light);
-}
-.footnote-item:last-child {
-  border-bottom: none;
-}
-
-.footnote-item__id {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  color: var(--color-federal-blue);
-  flex-shrink: 0;
-  min-width: 36px;
-  padding-top: 2px;
-}
+/* Footnotes section removed */
 
 /* ============================================================
    14. Day Navigation (Prev/Next)
@@ -1011,21 +814,54 @@ button {
   background: var(--color-ink-deep);
   border-top: 2px solid var(--color-federal-gold-dim);
   z-index: 100;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.timeline-scrollable {
+  flex: 1;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--color-federal-gold-dim) var(--color-ink-mid);
 }
 
-.timeline-bar::-webkit-scrollbar {
+.timeline-scrollable::-webkit-scrollbar {
   height: 4px;
 }
-.timeline-bar::-webkit-scrollbar-track {
+.timeline-scrollable::-webkit-scrollbar-track {
   background: var(--color-ink-mid);
 }
-.timeline-bar::-webkit-scrollbar-thumb {
+.timeline-scrollable::-webkit-scrollbar-thumb {
   background: var(--color-federal-gold-dim);
   border-radius: 2px;
+}
+
+.timeline-scroll-btn {
+  width: 40px;
+  flex-shrink: 0;
+  background: var(--color-ink-mid);
+  color: var(--color-federal-gold);
+  font-size: var(--text-xl);
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  user-select: none;
+}
+.timeline-scroll-btn:hover {
+  background: var(--color-ink-light);
+  color: var(--color-federal-gold-lt);
+}
+.timeline-scroll-btn--left {
+  border-right: 1px solid var(--color-ink-light);
+}
+.timeline-scroll-btn--right {
+  border-left: 1px solid var(--color-ink-light);
 }
 
 .timeline-inner {
@@ -1062,8 +898,8 @@ button {
 
 .timeline-day {
   position: relative;
-  width: 30px;
-  height: 32px;
+  width: 34px;
+  height: 36px;
   border: 1px solid transparent;
   border-radius: 4px;
   background: var(--color-ink-mid);
@@ -1095,17 +931,15 @@ button {
 }
 
 .timeline-day.notable::after {
-  content: '';
-  display: block;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--color-federal-gold-lt);
+  content: '★';
+  font-size: 8px;
+  line-height: 1;
+  color: var(--color-federal-gold-lt);
   flex-shrink: 0;
 }
 
 .timeline-day.active.notable::after {
-  background: var(--color-ink-mid);
+  color: var(--color-ink-mid);
 }
 
 /* ============================================================

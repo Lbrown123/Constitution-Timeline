@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --input-type=module scripts/fetch_debates.js)",
+      "Read(//usr/local/bin/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(command -v node)",
+      "Read(//Users/logandrake/.nvm/versions/**)",
+      "Read(//Users/logandrake/.volta/**)",
+      "Bash(export PATH=\"$PATH:/opt/homebrew/bin:/usr/local/bin\")",
+      "Bash(/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 scripts/fetch_debates.py)",
+      "Bash(/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 scripts/build_bundle.py)"
+    ]
+  }
+}

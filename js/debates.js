@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   buildTimeline(manifest.days);
-  buildSidebar(manifest.days);
+  initTimelineScrollButtons();
 
   // Determine starting day from URL hash, or default to first
   const hashId = getHashId();
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // URL hash helpers
 // ============================================================
 function getHashId() {
-  const hash = window.location.hash.slice(1); // strip '#'
+  const hash = window.location.hash.slice(1);
   if (hash && manifest && manifest.days.find(d => d.id === hash)) {
     return hash;
   }
@@ -106,44 +106,20 @@ function buildTimeline(days) {
 }
 
 // ============================================================
-// Sidebar construction
+// Timeline scroll arrow buttons
 // ============================================================
-function buildSidebar(days) {
-  const list = document.getElementById('sidebar-list');
-  if (!list) return;
+function initTimelineScrollButtons() {
+  const scrollable = document.getElementById('timeline-scrollable');
+  const leftBtn = document.getElementById('timeline-scroll-left');
+  const rightBtn = document.getElementById('timeline-scroll-right');
+  if (!scrollable || !leftBtn || !rightBtn) return;
 
-  const byMonth = groupByMonth(days);
-
-  for (const [month, monthDays] of Object.entries(byMonth)) {
-    const section = document.createElement('div');
-    section.className = 'sidebar-month';
-
-    const label = document.createElement('span');
-    label.className = 'sidebar-month__label';
-    label.textContent = monthName(Number(month));
-    section.appendChild(label);
-
-    for (const day of monthDays) {
-      const btn = document.createElement('button');
-      btn.className = 'sidebar-day';
-      btn.dataset.id = day.id;
-      btn.setAttribute('aria-label', day.label + (day.notable ? ` — ${day.notable}` : ''));
-      btn.textContent = day.label;
-
-      if (day.notable) {
-        const dot = document.createElement('span');
-        dot.className = 'sidebar-day__notable-dot';
-        dot.title = day.notable;
-        dot.setAttribute('aria-hidden', 'true');
-        btn.appendChild(dot);
-      }
-
-      btn.addEventListener('click', () => loadDay(day.id));
-      section.appendChild(btn);
-    }
-
-    list.appendChild(section);
-  }
+  leftBtn.addEventListener('click', () => {
+    scrollable.scrollBy({ left: -240, behavior: 'smooth' });
+  });
+  rightBtn.addEventListener('click', () => {
+    scrollable.scrollBy({ left: 240, behavior: 'smooth' });
+  });
 }
 
 // ============================================================
@@ -154,7 +130,6 @@ async function loadDay(id) {
   currentDayId = id;
 
   setActiveTimeline(id);
-  setActiveSidebar(id);
   setHash(id);
   showLoading(true);
 
@@ -220,73 +195,17 @@ function renderDay(data) {
   const titleEl = document.getElementById('day-title');
   if (titleEl) titleEl.textContent = data.title || meta.label;
 
-  // Attendees
-  const attendeesSection = document.getElementById('attendees-section');
-  const attendeesBody = document.getElementById('attendees-body');
-  if (attendeesSection && attendeesBody) {
-    if (data.attendees && data.attendees.trim()) {
-      attendeesBody.innerHTML = data.attendees;
-      attendeesSection.style.display = 'block';
-      // Reset toggle state
-      attendeesBody.classList.remove('open');
-      const toggle = document.getElementById('attendees-toggle');
-      if (toggle) {
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    } else {
-      attendeesSection.style.display = 'none';
-    }
-  }
-
   // Debate body
   const bodyEl = document.getElementById('debate-body');
   if (bodyEl) {
     bodyEl.innerHTML = data.contentHtml || '<p><em>No content available for this day.</em></p>';
   }
 
-  // Footnotes
-  renderFootnotes(data.footnotes || []);
-
   // Prev/Next navigation
   updateDayNav(idx);
 
   // Update page title
   document.title = `${data.title || meta.label} — The 1787 Convention`;
-}
-
-// ============================================================
-// Footnotes
-// ============================================================
-function renderFootnotes(footnotes) {
-  const section = document.getElementById('footnotes-section');
-  const body = document.getElementById('footnotes-body');
-  const countEl = document.getElementById('footnotes-count');
-  const toggle = document.getElementById('footnotes-toggle');
-
-  if (!section || !body) return;
-
-  if (!footnotes || footnotes.length === 0) {
-    section.style.display = 'none';
-    return;
-  }
-
-  section.style.display = 'block';
-  if (countEl) countEl.textContent = `Editorial Notes (${footnotes.length})`;
-
-  body.innerHTML = footnotes.map(fn => `
-    <div class="footnote-item" id="${fn.id}">
-      <span class="footnote-item__id">${fn.id}</span>
-      <span class="footnote-item__text">${fn.text}</span>
-    </div>
-  `).join('');
-
-  // Reset state
-  body.classList.remove('open');
-  if (toggle) {
-    toggle.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }
 }
 
 // ============================================================
@@ -322,51 +241,24 @@ function setActiveTimeline(id) {
   const btn = document.querySelector(`.timeline-day[data-id="${id}"]`);
   if (btn) {
     btn.classList.add('active');
-    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // Scroll the button into the center of the scrollable timeline
+    const scrollable = document.getElementById('timeline-scrollable');
+    if (scrollable) {
+      const btnLeft = btn.offsetLeft;
+      const btnWidth = btn.offsetWidth;
+      const scrollableWidth = scrollable.offsetWidth;
+      scrollable.scrollTo({
+        left: btnLeft - (scrollableWidth / 2) + (btnWidth / 2),
+        behavior: 'smooth',
+      });
+    }
   }
 }
-
-function setActiveSidebar(id) {
-  document.querySelectorAll('.sidebar-day.active').forEach(el => el.classList.remove('active'));
-  const btn = document.querySelector(`.sidebar-day[data-id="${id}"]`);
-  if (btn) {
-    btn.classList.add('active');
-    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-}
-
-// ============================================================
-// Collapsible toggles (attendees & footnotes)
-// ============================================================
-document.addEventListener('DOMContentLoaded', () => {
-  // Attendees toggle
-  const attendeesToggle = document.getElementById('attendees-toggle');
-  const attendeesBody = document.getElementById('attendees-body');
-  if (attendeesToggle && attendeesBody) {
-    attendeesToggle.addEventListener('click', () => {
-      const isOpen = attendeesBody.classList.toggle('open');
-      attendeesToggle.classList.toggle('open', isOpen);
-      attendeesToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-  }
-
-  // Footnotes toggle
-  const footnotesToggle = document.getElementById('footnotes-toggle');
-  const footnotesBody = document.getElementById('footnotes-body');
-  if (footnotesToggle && footnotesBody) {
-    footnotesToggle.addEventListener('click', () => {
-      const isOpen = footnotesBody.classList.toggle('open');
-      footnotesToggle.classList.toggle('open', isOpen);
-      footnotesToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-  }
-});
 
 // ============================================================
 // Keyboard navigation
 // ============================================================
 function handleKeyNav(e) {
-  // Don't hijack when typing in an input
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
   const idx = manifest.days.findIndex(d => d.id === currentDayId);
