@@ -1,0 +1,843 @@
+{
+  "convention": {
+    "title": "Notes of Debates in the Federal Convention of 1787",
+    "editor": "James Madison",
+    "source": "Yale Law School Avalon Project",
+    "edition": "Oxford University Press, 1920 (Hunt & Scott, eds.)",
+    "start": "1787-05-14",
+    "end": "1787-09-17"
+  },
+  "days": [
+    {
+      "id": "debates_514525",
+      "file": "debates_514525.json",
+      "dates": [
+        "1787-05-14",
+        "1787-05-25"
+      ],
+      "label": "May 14 & 25",
+      "month": 5,
+      "notable": "Convention opens; quorum achieved May 25"
+    },
+    {
+      "id": "debates_528",
+      "file": "debates_528.json",
+      "dates": [
+        "1787-05-28"
+      ],
+      "label": "May 28",
+      "month": 5,
+      "notable": null
+    },
+    {
+      "id": "debates_529",
+      "file": "debates_529.json",
+      "dates": [
+        "1787-05-29"
+      ],
+      "label": "May 29",
+      "month": 5,
+      "notable": "Virginia Plan introduced"
+    },
+    {
+      "id": "debates_530",
+      "file": "debates_530.json",
+      "dates": [
+        "1787-05-30"
+      ],
+      "label": "May 30",
+      "month": 5,
+      "notable": null
+    },
+    {
+      "id": "debates_531",
+      "file": "debates_531.json",
+      "dates": [
+        "1787-05-31"
+      ],
+      "label": "May 31",
+      "month": 5,
+      "notable": null
+    },
+    {
+      "id": "debates_601",
+      "file": "debates_601.json",
+      "dates": [
+        "1787-06-01"
+      ],
+      "label": "June 1",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_602",
+      "file": "debates_602.json",
+      "dates": [
+        "1787-06-02"
+      ],
+      "label": "June 2",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_604",
+      "file": "debates_604.json",
+      "dates": [
+        "1787-06-04"
+      ],
+      "label": "June 4",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_605",
+      "file": "debates_605.json",
+      "dates": [
+        "1787-06-05"
+      ],
+      "label": "June 5",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_606",
+      "file": "debates_606.json",
+      "dates": [
+        "1787-06-06"
+      ],
+      "label": "June 6",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_607",
+      "file": "debates_607.json",
+      "dates": [
+        "1787-06-07"
+      ],
+      "label": "June 7",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_608",
+      "file": "debates_608.json",
+      "dates": [
+        "1787-06-08"
+      ],
+      "label": "June 8",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_609",
+      "file": "debates_609.json",
+      "dates": [
+        "1787-06-09"
+      ],
+      "label": "June 9",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_611",
+      "file": "debates_611.json",
+      "dates": [
+        "1787-06-11"
+      ],
+      "label": "June 11",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_612",
+      "file": "debates_612.json",
+      "dates": [
+        "1787-06-12"
+      ],
+      "label": "June 12",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_613",
+      "file": "debates_613.json",
+      "dates": [
+        "1787-06-13"
+      ],
+      "label": "June 13",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_614",
+      "file": "debates_614.json",
+      "dates": [
+        "1787-06-14"
+      ],
+      "label": "June 14",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_615",
+      "file": "debates_615.json",
+      "dates": [
+        "1787-06-15"
+      ],
+      "label": "June 15",
+      "month": 6,
+      "notable": "New Jersey Plan introduced"
+    },
+    {
+      "id": "debates_616",
+      "file": "debates_616.json",
+      "dates": [
+        "1787-06-16"
+      ],
+      "label": "June 16",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_618",
+      "file": "debates_618.json",
+      "dates": [
+        "1787-06-18"
+      ],
+      "label": "June 18",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_619",
+      "file": "debates_619.json",
+      "dates": [
+        "1787-06-19"
+      ],
+      "label": "June 19",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_620",
+      "file": "debates_620.json",
+      "dates": [
+        "1787-06-20"
+      ],
+      "label": "June 20",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_621",
+      "file": "debates_621.json",
+      "dates": [
+        "1787-06-21"
+      ],
+      "label": "June 21",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_622",
+      "file": "debates_622.json",
+      "dates": [
+        "1787-06-22"
+      ],
+      "label": "June 22",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_623",
+      "file": "debates_623.json",
+      "dates": [
+        "1787-06-23"
+      ],
+      "label": "June 23",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_625",
+      "file": "debates_625.json",
+      "dates": [
+        "1787-06-25"
+      ],
+      "label": "June 25",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_626",
+      "file": "debates_626.json",
+      "dates": [
+        "1787-06-26"
+      ],
+      "label": "June 26",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_627",
+      "file": "debates_627.json",
+      "dates": [
+        "1787-06-27"
+      ],
+      "label": "June 27",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_628",
+      "file": "debates_628.json",
+      "dates": [
+        "1787-06-28"
+      ],
+      "label": "June 28",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_629",
+      "file": "debates_629.json",
+      "dates": [
+        "1787-06-29"
+      ],
+      "label": "June 29",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_630",
+      "file": "debates_630.json",
+      "dates": [
+        "1787-06-30"
+      ],
+      "label": "June 30",
+      "month": 6,
+      "notable": null
+    },
+    {
+      "id": "debates_702",
+      "file": "debates_702.json",
+      "dates": [
+        "1787-07-02"
+      ],
+      "label": "July 2",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_705",
+      "file": "debates_705.json",
+      "dates": [
+        "1787-07-05"
+      ],
+      "label": "July 5",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_706",
+      "file": "debates_706.json",
+      "dates": [
+        "1787-07-06"
+      ],
+      "label": "July 6",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_709",
+      "file": "debates_709.json",
+      "dates": [
+        "1787-07-09"
+      ],
+      "label": "July 9",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_710",
+      "file": "debates_710.json",
+      "dates": [
+        "1787-07-10"
+      ],
+      "label": "July 10",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_711",
+      "file": "debates_711.json",
+      "dates": [
+        "1787-07-11"
+      ],
+      "label": "July 11",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_712",
+      "file": "debates_712.json",
+      "dates": [
+        "1787-07-12"
+      ],
+      "label": "July 12",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_713",
+      "file": "debates_713.json",
+      "dates": [
+        "1787-07-13"
+      ],
+      "label": "July 13",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_714",
+      "file": "debates_714.json",
+      "dates": [
+        "1787-07-14"
+      ],
+      "label": "July 14",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_716",
+      "file": "debates_716.json",
+      "dates": [
+        "1787-07-16"
+      ],
+      "label": "July 16",
+      "month": 7,
+      "notable": "Great Compromise adopted"
+    },
+    {
+      "id": "debates_717",
+      "file": "debates_717.json",
+      "dates": [
+        "1787-07-17"
+      ],
+      "label": "July 17",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_718",
+      "file": "debates_718.json",
+      "dates": [
+        "1787-07-18"
+      ],
+      "label": "July 18",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_719",
+      "file": "debates_719.json",
+      "dates": [
+        "1787-07-19"
+      ],
+      "label": "July 19",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_720",
+      "file": "debates_720.json",
+      "dates": [
+        "1787-07-20"
+      ],
+      "label": "July 20",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_723",
+      "file": "debates_723.json",
+      "dates": [
+        "1787-07-23"
+      ],
+      "label": "July 23",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_724",
+      "file": "debates_724.json",
+      "dates": [
+        "1787-07-24"
+      ],
+      "label": "July 24",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_725",
+      "file": "debates_725.json",
+      "dates": [
+        "1787-07-25"
+      ],
+      "label": "July 25",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_726",
+      "file": "debates_726.json",
+      "dates": [
+        "1787-07-26"
+      ],
+      "label": "July 26",
+      "month": 7,
+      "notable": null
+    },
+    {
+      "id": "debates_806",
+      "file": "debates_806.json",
+      "dates": [
+        "1787-08-06"
+      ],
+      "label": "Aug 6",
+      "month": 8,
+      "notable": "Committee of Detail report"
+    },
+    {
+      "id": "debates_807",
+      "file": "debates_807.json",
+      "dates": [
+        "1787-08-07"
+      ],
+      "label": "Aug 7",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_808",
+      "file": "debates_808.json",
+      "dates": [
+        "1787-08-08"
+      ],
+      "label": "Aug 8",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_809",
+      "file": "debates_809.json",
+      "dates": [
+        "1787-08-09"
+      ],
+      "label": "Aug 9",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_810",
+      "file": "debates_810.json",
+      "dates": [
+        "1787-08-10"
+      ],
+      "label": "Aug 10",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_811",
+      "file": "debates_811.json",
+      "dates": [
+        "1787-08-11"
+      ],
+      "label": "Aug 11",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_813",
+      "file": "debates_813.json",
+      "dates": [
+        "1787-08-13"
+      ],
+      "label": "Aug 13",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_814",
+      "file": "debates_814.json",
+      "dates": [
+        "1787-08-14"
+      ],
+      "label": "Aug 14",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_815",
+      "file": "debates_815.json",
+      "dates": [
+        "1787-08-15"
+      ],
+      "label": "Aug 15",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_816",
+      "file": "debates_816.json",
+      "dates": [
+        "1787-08-16"
+      ],
+      "label": "Aug 16",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_817",
+      "file": "debates_817.json",
+      "dates": [
+        "1787-08-17"
+      ],
+      "label": "Aug 17",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_818",
+      "file": "debates_818.json",
+      "dates": [
+        "1787-08-18"
+      ],
+      "label": "Aug 18",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_820",
+      "file": "debates_820.json",
+      "dates": [
+        "1787-08-20"
+      ],
+      "label": "Aug 20",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_821",
+      "file": "debates_821.json",
+      "dates": [
+        "1787-08-21"
+      ],
+      "label": "Aug 21",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_822",
+      "file": "debates_822.json",
+      "dates": [
+        "1787-08-22"
+      ],
+      "label": "Aug 22",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_823",
+      "file": "debates_823.json",
+      "dates": [
+        "1787-08-23"
+      ],
+      "label": "Aug 23",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_824",
+      "file": "debates_824.json",
+      "dates": [
+        "1787-08-24"
+      ],
+      "label": "Aug 24",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_825",
+      "file": "debates_825.json",
+      "dates": [
+        "1787-08-25"
+      ],
+      "label": "Aug 25",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_827",
+      "file": "debates_827.json",
+      "dates": [
+        "1787-08-27"
+      ],
+      "label": "Aug 27",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_828",
+      "file": "debates_828.json",
+      "dates": [
+        "1787-08-28"
+      ],
+      "label": "Aug 28",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_829",
+      "file": "debates_829.json",
+      "dates": [
+        "1787-08-29"
+      ],
+      "label": "Aug 29",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_830",
+      "file": "debates_830.json",
+      "dates": [
+        "1787-08-30"
+      ],
+      "label": "Aug 30",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_831",
+      "file": "debates_831.json",
+      "dates": [
+        "1787-08-31"
+      ],
+      "label": "Aug 31",
+      "month": 8,
+      "notable": null
+    },
+    {
+      "id": "debates_901",
+      "file": "debates_901.json",
+      "dates": [
+        "1787-09-01"
+      ],
+      "label": "Sep 1",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_904",
+      "file": "debates_904.json",
+      "dates": [
+        "1787-09-04"
+      ],
+      "label": "Sep 4",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_905",
+      "file": "debates_905.json",
+      "dates": [
+        "1787-09-05"
+      ],
+      "label": "Sep 5",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_906",
+      "file": "debates_906.json",
+      "dates": [
+        "1787-09-06"
+      ],
+      "label": "Sep 6",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_908",
+      "file": "debates_908.json",
+      "dates": [
+        "1787-09-08"
+      ],
+      "label": "Sep 8",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_910",
+      "file": "debates_910.json",
+      "dates": [
+        "1787-09-10"
+      ],
+      "label": "Sep 10",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_912",
+      "file": "debates_912.json",
+      "dates": [
+        "1787-09-12"
+      ],
+      "label": "Sep 12",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_913",
+      "file": "debates_913.json",
+      "dates": [
+        "1787-09-13"
+      ],
+      "label": "Sep 13",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_914",
+      "file": "debates_914.json",
+      "dates": [
+        "1787-09-14"
+      ],
+      "label": "Sep 14",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_915",
+      "file": "debates_915.json",
+      "dates": [
+        "1787-09-15"
+      ],
+      "label": "Sep 15",
+      "month": 9,
+      "notable": null
+    },
+    {
+      "id": "debates_917",
+      "file": "debates_917.json",
+      "dates": [
+        "1787-09-17"
+      ],
+      "label": "Sep 17",
+      "month": 9,
+      "notable": "Constitution signed"
+    }
+  ]
+}

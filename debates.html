@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read the Debates — The 1787 Constitutional Convention</title>
+  <meta name="description" content="Browse and read Madison's daily notes from the 1787 Constitutional Convention, day by day.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="debates-body">
+
+  <!-- Navigation -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo" aria-label="Home">
+      <span class="logo-long">The 1787 Convention</span>
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="debates.html" class="active">Read the Debates</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main layout -->
+  <div class="debates-layout">
+
+    <!-- Sidebar -->
+    <aside class="debates-sidebar" id="debates-sidebar" aria-label="Debate day navigation">
+      <div class="sidebar-header">
+        <h2>All Sessions</h2>
+      </div>
+      <!-- Sidebar day list is built by debates.js -->
+      <div id="sidebar-list"></div>
+    </aside>
+
+    <!-- Content area -->
+    <main class="debates-content" id="debates-content" role="main">
+      <div class="debates-content__inner">
+
+        <!-- Loading skeleton -->
+        <div id="day-loading" aria-live="polite" aria-label="Loading debate content">
+          <div class="skeleton-block skeleton-title"></div>
+          <div class="skeleton-block skeleton-subtitle" style="margin-bottom: 2rem;"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--full"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--med"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--full"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--short" style="margin-bottom: 1.5rem;"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--full"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--med"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--full"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--full"></div>
+          <div class="skeleton-block skeleton-line skeleton-line--short"></div>
+        </div>
+
+        <!-- Day content -->
+        <div id="day-content">
+
+          <!-- Day header -->
+          <header class="day-header">
+            <p class="day-counter" id="day-counter"></p>
+            <div id="day-notable-badge" class="day-notable-badge" style="display:none;"></div>
+            <h1 class="day-title" id="day-title"></h1>
+
+            <!-- Attendees collapsible -->
+            <div id="attendees-section" style="display:none;">
+              <button class="attendees-toggle" id="attendees-toggle" aria-expanded="false" aria-controls="attendees-body">
+                <span class="attendees-toggle__icon" aria-hidden="true">&#9658;</span>
+                Delegates Present
+              </button>
+              <div class="attendees-body" id="attendees-body" role="region" aria-labelledby="attendees-toggle"></div>
+            </div>
+          </header>
+
+          <!-- Debate body -->
+          <article class="debate-body" id="debate-body" aria-live="polite"></article>
+
+          <!-- Footnotes collapsible -->
+          <div class="footnotes-section" id="footnotes-section" style="display:none;">
+            <button class="footnotes-toggle" id="footnotes-toggle" aria-expanded="false" aria-controls="footnotes-body">
+              <span class="footnotes-toggle__icon" aria-hidden="true">&#9658;</span>
+              <span id="footnotes-count">Editorial Notes</span>
+            </button>
+            <div class="footnotes-body" id="footnotes-body" role="region" aria-labelledby="footnotes-toggle"></div>
+          </div>
+
+          <!-- Prev / Next navigation -->
+          <nav class="day-nav" aria-label="Previous and next debate days">
+            <button class="day-nav__btn day-nav__btn--prev" id="prev-day" disabled>
+              <span aria-hidden="true">&larr;</span>
+              <span id="prev-day-label">Previous</span>
+            </button>
+            <button class="day-nav__btn day-nav__btn--next" id="next-day" disabled>
+              <span id="next-day-label">Next</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </nav>
+
+        </div><!-- #day-content -->
+
+      </div><!-- .debates-content__inner -->
+    </main>
+
+  </div><!-- .debates-layout -->
+
+  <!-- Timeline bar (fixed bottom) -->
+  <div class="timeline-bar" id="timeline-bar" role="navigation" aria-label="Convention dates timeline">
+    <div class="timeline-inner" id="timeline-inner">
+      <!-- Built dynamically by debates.js -->
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/debates.js"></script>
+</body>
+</html>
