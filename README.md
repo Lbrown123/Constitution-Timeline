@@ -33,42 +33,43 @@ Convention Website/
 
 The `data/` folder needs to be populated by running the scraper. This only needs to be done once (or when you want to refresh the content).
 
-**Requirements:** Node.js 18 or later (uses built-in `fetch`).
+**Requirements:** Python 3.7+ (no third-party packages needed).
 
 ```bash
-node scripts/fetch_debates.js
+python3 scripts/fetch_debates.py
 ```
 
 This will:
-- Fetch all 87 debate day pages from the Yale Avalon Project
+- Fetch all 83 debate day pages from the Yale Avalon Project
 - Save each as a JSON file in `data/`
 - Generate `data/manifest.json`
 - Take approximately 2–3 minutes (polite 1.5s delay between requests)
 
 To re-fetch everything from scratch:
 ```bash
-node scripts/fetch_debates.js --force
+python3 scripts/fetch_debates.py --force
 ```
 
-To regenerate `manifest.json` only (without re-fetching pages):
+### 2. Build the bundle (required for file:// access)
+
 ```bash
-node scripts/fetch_debates.js --manifest-only
+python3 scripts/build_bundle.py
 ```
 
-### 2. Run locally
+This bundles all the JSON files into `data/debates-bundle.js`, which allows the site to work when opened directly in a browser without a local HTTP server. The bundle is ~1.9MB and is loaded via a `<script>` tag in `debates.html`.
 
-Because the site uses `fetch()` to load JSON files, you need a local HTTP server — opening `index.html` directly in a browser (`file://` protocol) will not work.
+You only need to re-run this if you re-scrape the content.
 
-**Option A — Python (no install needed):**
+### 3. Open the site
+
+**Option A — Open directly (no server needed):**
+Just open `index.html` in your browser. The bundled data loads fine on `file://`.
+
+**Option B — Local HTTP server (also works):**
 ```bash
 python3 -m http.server 8000
 ```
 Then open: http://localhost:8000
-
-**Option B — Node.js:**
-```bash
-npx serve .
-```
 
 ## Deployment
 

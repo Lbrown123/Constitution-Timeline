@@ -11,9 +11,14 @@ const dayCache = {};         // In-memory cache: { id: debateData }
 // ============================================================
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    manifest = await fetchJSON('data/manifest.json');
+    // Use pre-bundled data (works on file://) if available, otherwise fetch
+    if (window.__DEBATES_MANIFEST__) {
+      manifest = window.__DEBATES_MANIFEST__;
+    } else {
+      manifest = await fetchJSON('data/manifest.json');
+    }
   } catch (err) {
-    showFatalError('Could not load debate index (manifest.json). Make sure you have run the scraper first. See README.md for instructions.', err);
+    showFatalError('Could not load debate index. Make sure you have run scripts/build_bundle.py and that data/debates-bundle.js exists.', err);
     return;
   }
 
@@ -181,7 +186,10 @@ async function getDay(id) {
   if (dayCache[id]) return dayCache[id];
   const meta = manifest.days.find(d => d.id === id);
   if (!meta) throw new Error(`Unknown day ID: ${id}`);
-  const data = await fetchJSON(`data/${meta.file}`);
+  // Use pre-bundled data if available, otherwise fetch the individual JSON file
+  const data = (window.__DEBATES_DATA__ && window.__DEBATES_DATA__[id])
+    ? window.__DEBATES_DATA__[id]
+    : await fetchJSON(`data/${meta.file}`);
   dayCache[id] = data;
   return data;
 }
