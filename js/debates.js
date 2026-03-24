@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   buildTimeline(manifest.days);
   initTimelineScrollButtons();
+  initTimelineStickyMonth();
 
   // Determine starting day from URL hash, or default to first
   const hashId = getHashId();
@@ -120,6 +121,83 @@ function initTimelineScrollButtons() {
   rightBtn.addEventListener('click', () => {
     scrollable.scrollBy({ left: 240, behavior: 'smooth' });
   });
+}
+
+// ============================================================
+// Sticky month label overlay
+// ============================================================
+function initTimelineStickyMonth() {
+  const scrollable = document.getElementById('timeline-scrollable');
+  const overlay = document.getElementById('timeline-sticky-month');
+  if (!scrollable || !overlay) return;
+
+  // Align overlay top with actual native label position (robust across browsers).
+  // Subtract border-top because absolute `top` is measured from the padding edge, not the border edge.
+  const bar = document.getElementById('timeline-bar');
+  const firstLabel = document.querySelector('.timeline-month-label');
+  if (bar && firstLabel) {
+    const barRect = bar.getBoundingClientRect();
+    const labelRect = firstLabel.getBoundingClientRect();
+    const barBorderTop = parseFloat(getComputedStyle(bar).borderTopWidth) || 0;
+    overlay.style.top = (labelRect.top - barRect.top - barBorderTop) + 'px';
+  }
+
+  let rafId = null;
+
+  function update() {
+    rafId = null;
+    const scrollableRect = scrollable.getBoundingClientRect();
+    const leftEdge = scrollableRect.left;
+
+    const groups = Array.from(document.querySelectorAll('.timeline-month-group'));
+    if (!groups.length) return;
+
+    // Current group = first group that has any content visible at or past the left edge
+    let currentGroup = null;
+    for (const group of groups) {
+      if (group.getBoundingClientRect().right > leftEdge) {
+        currentGroup = group;
+        break;
+      }
+    }
+    if (!currentGroup) return;
+
+    const nativeLabel = currentGroup.querySelector('.timeline-month-label');
+    const nativeLabelRect = nativeLabel.getBoundingClientRect();
+
+    // If the native label is still visible, hide the overlay
+    if (nativeLabelRect.right >= leftEdge) {
+      overlay.style.opacity = '0';
+      return;
+    }
+
+    // Native label has scrolled off — show overlay with current month name
+    overlay.textContent = nativeLabel.textContent;
+    overlay.style.opacity = '1';
+
+    // Push overlay leftward as the next month's group scrolls in
+    const currentIdx = groups.indexOf(currentGroup);
+    const nextGroup = groups[currentIdx + 1];
+    let pushX = 0;
+    if (nextGroup) {
+      const nextGroupX = nextGroup.getBoundingClientRect().left;
+      const overlayWidth = overlay.offsetWidth;
+      const overlayLeft = overlay.getBoundingClientRect().left;
+      const pushStart = overlayLeft + overlayWidth;
+      if (nextGroupX < pushStart) {
+        pushX = nextGroupX - pushStart; // negative: slides overlay out to the left
+      }
+    }
+
+    overlay.style.transform = `translateX(${pushX}px)`;
+  }
+
+  function onScroll() {
+    if (!rafId) rafId = requestAnimationFrame(update);
+  }
+
+  scrollable.addEventListener('scroll', onScroll, { passive: true });
+  update();
 }
 
 // ============================================================
