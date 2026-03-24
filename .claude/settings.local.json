@@ -58,7 +58,8 @@
       "Bash(kill %1)",
       "Bash(mkdir -p data/debates data/attendees)",
       "Bash(mv data/context.json data/debates_*.json data/debates/)",
-      "Bash(mv data/attendees.json data/attendee_*.json data/attendees/)"
+      "Bash(mv data/attendees.json data/attendee_*.json data/attendees/)",
+      "Bash(git checkout:*)"
     ]
   }
 }

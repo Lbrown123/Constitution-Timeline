@@ -239,26 +239,21 @@ button {
   justify-content: center;
   text-align: center;
   padding: var(--space-16) var(--space-6);
-  background:
-    linear-gradient(180deg, rgba(245,240,232,0) 60%, var(--color-parchment) 100%),
-    linear-gradient(135deg, var(--color-parchment) 0%, #ece4d0 50%, #e4d9c0 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(ellipse 800px 600px at 50% 40%, rgba(43,72,120,0.06) 0%, transparent 70%);
-  pointer-events: none;
+  background-image: url('../images/Assembly room side.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero__inner {
-  max-width: 800px;
+  max-width: 720px;
   position: relative;
   z-index: 1;
+  background:
+    radial-gradient(ellipse 800px 600px at 50% 40%, rgba(43,72,120,0.06) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(245,240,232,0) 60%, var(--color-parchment) 100%),
+    linear-gradient(135deg, var(--color-parchment) 0%, #ece4d0 50%, #e4d9c0 100%);
+  padding: var(--space-12) var(--space-10);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.3);
 }
 
 .hero__eyebrow {
