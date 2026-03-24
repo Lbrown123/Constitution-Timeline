@@ -194,20 +194,6 @@ Based on the historical Convention divide over representation:
 
 ---
 
-## Deployment
-
-### GitHub Pages
-1. Push the repo to GitHub (include `data/` and `images/` folders)
-2. Go to **Settings → Pages**, set source to branch `main`, folder `/ (root)`
-3. Live at `https://yourusername.github.io/your-repo-name/`
-
-The `.nojekyll` file in the root prevents Jekyll processing.
-
-### Netlify
-Drag the project folder onto [app.netlify.com](https://app.netlify.com), or connect the GitHub repo with build command blank and publish directory `.`. No build step needed.
-
----
-
 ## Content Source
 
 > *Notes of Debates in the Federal Convention of 1787 Reported by James Madison*
