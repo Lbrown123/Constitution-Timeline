@@ -58,6 +58,15 @@
           <option value="adults">For Adults</option>
         </select>
       </div>
+      <div>
+        <label for="filter-category" class="visually-hidden">Category</label>
+        <select id="filter-category" class="books-filters__select" aria-label="Filter by category">
+          <option value="">All Categories</option>
+          <option value="reprinting">Reprinting</option>
+          <option value="biography">Biographies</option>
+          <option value="general-history">General History</option>
+        </select>
+      </div>
       <button class="books-filters__reset" id="filter-reset" type="button" aria-label="Reset filter">Reset</button>
     </div>
   </div>
@@ -73,6 +82,7 @@
       <div>
         <p class="site-footer__brand">The 1787 Convention</p>
         <p>Book recommendations curated for students of the Constitutional Convention.</p>
+        <p style="margin-top:var(--space-3);">A portion of book sales purchased through links on this site support the site's developer through his online bookstore <a href="https://bookshop.org/shop/Blazingstar" target="_blank" rel="noopener">Blazing Star Bookshop</a>.</p>
       </div>
       <div>
         <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-text-on-dark);margin-bottom:var(--space-4);line-height:var(--leading-prose);">
@@ -93,6 +103,7 @@
     var contentEl = document.getElementById('books-content');
     var filterSelect = document.getElementById('filter-delegate');
     var audienceSelect = document.getElementById('filter-audience');
+    var categorySelect = document.getElementById('filter-category');
     var resetBtn = document.getElementById('filter-reset');
 
     // -----------------------------------------------------------
@@ -192,6 +203,7 @@
     function applyFilter() {
       var delegateVal = filterSelect.value;
       var audienceVal = audienceSelect.value;
+      var categoryVal = categorySelect.value;
       var sections = contentEl.querySelectorAll('.books-delegate-section');
       for (var i = 0; i < sections.length; i++) {
         var s = sections[i];
@@ -200,26 +212,24 @@
           s.classList.add('hidden');
           continue;
         }
-        // Audience filter: show/hide individual cards
+        // Audience + category filter: show/hide individual cards
         var cards = s.querySelectorAll('.book-card');
         var visibleCount = 0;
         for (var j = 0; j < cards.length; j++) {
           var card = cards[j];
-          if (!audienceVal) {
+          var showAudience = !audienceVal ||
+            (card.dataset.audience || '').split(' ').indexOf(audienceVal) !== -1;
+          var showCategory = !categoryVal ||
+            (card.dataset.category || '') === categoryVal;
+          if (showAudience && showCategory) {
             card.classList.remove('hidden');
             visibleCount++;
           } else {
-            var cardAudiences = (card.dataset.audience || '').split(' ');
-            if (cardAudiences.indexOf(audienceVal) !== -1) {
-              card.classList.remove('hidden');
-              visibleCount++;
-            } else {
-              card.classList.add('hidden');
-            }
+            card.classList.add('hidden');
           }
         }
-        // Hide section if audience filter left no visible cards
-        if (audienceVal && visibleCount === 0) {
+        // Hide section if filters left no visible cards
+        if ((audienceVal || categoryVal) && visibleCount === 0) {
           s.classList.add('hidden');
         } else {
           s.classList.remove('hidden');
@@ -229,9 +239,11 @@
 
     filterSelect.addEventListener('change', applyFilter);
     audienceSelect.addEventListener('change', applyFilter);
+    categorySelect.addEventListener('change', applyFilter);
     resetBtn.addEventListener('click', function () {
       filterSelect.value = '';
       audienceSelect.value = '';
+      categorySelect.value = '';
       applyFilter();
     });
 

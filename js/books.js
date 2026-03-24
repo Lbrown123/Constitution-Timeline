@@ -41,6 +41,9 @@
     if (book.audience && book.audience.length > 0) {
       card.dataset.audience = book.audience.join(' ');
     }
+    if (book.category) {
+      card.dataset.category = book.category;
+    }
 
     // Cover
     var coverDiv = document.createElement('div');
@@ -50,7 +53,16 @@
       img.src = book.cover;
       img.alt = 'Cover of ' + (book.title || 'book');
       img.loading = 'lazy';
-      coverDiv.appendChild(img);
+      if (book.link) {
+        var coverLink = document.createElement('a');
+        coverLink.href = book.link;
+        coverLink.target = '_blank';
+        coverLink.rel = 'noopener';
+        coverLink.appendChild(img);
+        coverDiv.appendChild(coverLink);
+      } else {
+        coverDiv.appendChild(img);
+      }
     } else {
       var ph = document.createElement('div');
       ph.className = 'book-card__cover--placeholder';

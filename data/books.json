@@ -1,5 +1,24 @@
 {
-  "general": [],
+  "general": [
+    {
+      "title": "The Constitutional Convention",
+      "author": "James Madison",
+      "cover": "images/books/Convention notes.jpg",
+      "description": "A printing of James Madison's meticulous daily notes from the Constitutional Convention, giving us our best and only look inside the decision-making of the framers. Presented with modern punctuation and spelling, judicious cuts, and helpful notes-plus fascinating background information on every delegate and an overview of the tumultuous times-here is the great drama of how the Constitution came to be, from the opening statements to the final votes.",
+      "link": "https://bookshop.org/a/11616/9780812975178",
+      "audience": ["adults"],
+      "category": "reprinting"
+    },
+    {
+      "title": "The Constitution",
+      "author": "The Convention Delegates",
+      "cover": "images/books/constitution-hardcover.jpg",
+      "description": "A smart, pocket-sized, hardcover printing of the final US Constitution, drafted panstakingly over 80+ days of work by the Convention delegates.",
+      "link": "https://bookshop.org/a/11616/9781557091055",
+      "audience": ["adults", "teens", "kids"],
+      "category": "reprinting"
+    }
+  ],
   "delegates": {
     "george_washington": {
       "name": "George Washington",
@@ -10,7 +29,8 @@
           "cover": "images/books/never forget your first.jpg",
           "description": "In the first biography of George Washington written by a woman, Alexis Coe examines some of the myths and legends surrounding the founding father and finds what truths lay behind them... if any.",
           "link": "https://bookshop.org/a/11616/9780735224117",
-          "audience": ["adults", "teens"]
+          "audience": ["adults", "teens"],
+          "category": "biography"
         }
       ]
     }
