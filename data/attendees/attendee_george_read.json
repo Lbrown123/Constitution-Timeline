@@ -1,0 +1,19 @@
+{
+  "id": "george_read",
+  "name": "George Read",
+  "state": "Delaware",
+  "stateSize": "small",
+  "occupationRaw": "Lawyer",
+  "occupationCategory": "Lawyer",
+  "birthYear": 1733,
+  "ageAtConvention": 54,
+  "ageDecade": "50s",
+  "signedConstitution": true,
+  "wikiTitle": "George Read (American politician, born 1733)",
+  "wikiUrl": "https://en.wikipedia.org/wiki/George_Read_%28American_politician%2C_born_1733%29",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/George_Read_-_Robert_Edge_Pine.tiff/lossy-page1-500px-George_Read_-_Robert_Edge_Pine.tiff.jpg",
+  "photoCard": "images/attendees/george_read.webp",
+  "photoProfile": "images/attendees/george_read_lg.webp",
+  "introHtml": "<p><b>George Read</b> (September 18, 1733 – September 21, 1798) was an American politician from New Castle in New Castle County, Delaware. He was a Continental Congressman from Delaware, a delegate to the U.S. Constitutional Convention of 1787, president of Delaware, and a member of the Federalist Party. In addition, Read served as U.S. Senator from Delaware and chief justice of Delaware.\n</p><p>Read was a Founding Father of the United States, one of only two statesmen who signed four of the great state papers on which the country's founding is based: Petition to the King and Continental Association, both passed by the Congress of 1774, as well as the Declaration of Independence in 1776 and Constitution of the United States in 1787.\n</p>",
+  "conventionHtml": ""
+}

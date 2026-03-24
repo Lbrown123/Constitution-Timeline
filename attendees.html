@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Attendees — 1787 Constitutional Convention</title>
+  <meta name="description" content="All 55 delegates who attended the 1787 Constitutional Convention in Philadelphia. Browse by state, occupation, and age.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="attendees-page">
+
+  <!-- Navigation -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo" aria-label="Home">
+      <span class="logo-long">The Constitutional Convention Timeline</span>
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="debates.html">Read the Debates</a></li>
+      <li><a href="attendees.html" class="active">The Attendees</a></li>
+      <li><a href="books.html">Further Reading</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+    <button class="site-nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="attendees-header" aria-labelledby="attendees-title">
+    <p class="attendees-header__eyebrow">Philadelphia, 1787</p>
+    <h1 class="attendees-header__title" id="attendees-title">The Attendees</h1>
+    <p class="attendees-header__sub">
+      Fifty-five delegates from twelve states gathered at the Pennsylvania State House
+      to forge a new government. These are the men who shaped the Constitution.
+    </p>
+  </header>
+
+  <!-- Filter Bar -->
+  <div class="attendees-filters" role="search" aria-label="Filter delegates">
+    <div class="attendees-filters__inner">
+      <span class="attendees-filters__label">Filter by</span>
+
+      <div class="attendees-filters__group">
+        <label for="filter-state" class="visually-hidden">State</label>
+        <select id="filter-state" class="attendees-filters__select" aria-label="Filter by state">
+          <option value="">All States</option>
+        </select>
+      </div>
+
+      <div class="attendees-filters__group">
+        <label for="filter-statesize" class="visually-hidden">State Size</label>
+        <select id="filter-statesize" class="attendees-filters__select" aria-label="Filter by state size">
+          <option value="">Large &amp; Small States</option>
+          <option value="big">Large States</option>
+          <option value="small">Small States</option>
+        </select>
+      </div>
+
+        <div class="attendees-filters__group">
+        <label for="filter-signed" class="visually-hidden">Signed Constitution</label>
+        <select id="filter-signed" class="attendees-filters__select" aria-label="Filter by signing status">
+          <option value="">Signed or Not</option>
+          <option value="yes">Signed the Constitution</option>
+          <option value="no">Did Not Sign</option>
+        </select>
+      </div>
+
+      <div class="attendees-filters__group">
+        <label for="filter-occupation" class="visually-hidden">Occupation</label>
+        <select id="filter-occupation" class="attendees-filters__select" aria-label="Filter by occupation">
+          <option value="">All Occupations</option>
+          <option value="Lawyer">Lawyer</option>
+          <option value="Planter/Farmer">Planter / Farmer</option>
+          <option value="Merchant">Merchant</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Statesman">Statesman / Other</option>
+        </select>
+      </div>
+
+      <div class="attendees-filters__group">
+        <label for="filter-age" class="visually-hidden">Age at Convention</label>
+        <select id="filter-age" class="attendees-filters__select" aria-label="Filter by age at convention">
+          <option value="">All Ages</option>
+          <option value="20s">20s (20–29)</option>
+          <option value="30s">30s (30–39)</option>
+          <option value="40s">40s (40–49)</option>
+          <option value="50s">50s (50–59)</option>
+          <option value="60s">60s (60–69)</option>
+          <option value="70+">70 and older</option>
+        </select>
+      </div>
+
+
+      <span class="attendees-filters__count" id="results-count" aria-live="polite"></span>
+      <button class="attendees-filters__reset" id="filter-reset" type="button" aria-label="Reset filters">Reset</button>
+    </div>
+  </div>
+
+  <!-- Attendees Grid -->
+  <section class="attendees-grid-section" aria-label="Delegate cards">
+    <div class="attendees-grid" id="attendees-grid">
+      <!-- Cards rendered by JS -->
+      <p class="attendees-empty" id="loading-msg">Loading delegates&hellip;</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__brand">The 1787 Convention</p>
+        <p>Delegate data sourced from Wikipedia. Photos from Wikimedia Commons (public domain).</p>
+      </div>
+      <!--<div>
+        <p style="font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); color: var(--color-text-on-dark); margin-bottom: var(--space-4); line-height: var(--leading-prose);">
+          "It is too probable that no plan we propose will be adopted." NOT A REAL HAMILTON QUOTE
+        </p>
+        <p style="font-family: var(--font-ui); font-size: var(--text-sm);">— Alexander Hamilton, June 18, 1787</p>
+      </div>-->
+    </div>
+  </footer>
+
+  <script src="data/debates-bundle.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    // -------------------------------------------------------
+    // State
+    // -------------------------------------------------------
+    let allAttendees = [];
+    const stateOrder = [
+      'Connecticut','Delaware','Georgia','Maryland','Massachusetts',
+      'New Hampshire','New Jersey','New York','North Carolina',
+      'Pennsylvania','South Carolina','Virginia',
+    ];
+
+    // -------------------------------------------------------
+    // Data loading (bundle → fetch fallback)
+    // -------------------------------------------------------
+    async function loadAttendees() {
+      if (window.__ATTENDEES_MANIFEST__ && window.__ATTENDEES_MANIFEST__.length) {
+        return window.__ATTENDEES_MANIFEST__;
+      }
+      const resp = await fetch('data/attendees/attendees.json');
+      if (!resp.ok) throw new Error('Failed to load attendees.json');
+      return resp.json();
+    }
+
+    // -------------------------------------------------------
+    // Render cards
+    // -------------------------------------------------------
+    function renderCards(attendees) {
+      const grid = document.getElementById('attendees-grid');
+      grid.innerHTML = '';
+
+      if (attendees.length === 0) {
+        grid.innerHTML = '<div class="attendees-empty"><p>No delegates match these filters.</p><p style="font-size:0.875rem;margin-top:0.5rem;">Try broadening your search.</p></div>';
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      for (const a of attendees) {
+        fragment.appendChild(buildCard(a));
+      }
+      grid.appendChild(fragment);
+    }
+
+    function buildCard(a) {
+      const card = document.createElement('article');
+      card.className = 'attendee-card';
+      card.dataset.state      = a.state || '';
+      card.dataset.occupation = a.occupationCategory || '';
+      card.dataset.age        = a.ageDecade || '';
+      card.dataset.signed     = a.signedConstitution ? 'yes' : 'no';
+      card.dataset.statesize  = a.stateSize || '';
+
+      const profileUrl = `attendee.html#${a.id}`;
+      const stateSizeLabel = a.stateSize === 'big' ? 'big state' : 'little state';
+      const signedLabel    = a.signedConstitution ? 'Signed' : 'Did not sign';
+      const badgeClass     = a.signedConstitution
+        ? 'attendee-card__badge--signed'
+        : 'attendee-card__badge--unsigned';
+
+      const photoSrc  = a.photoProfile || 'images/attendees/placeholder_lg.webp';
+      const altText   = `Portrait of ${a.name}`;
+
+      card.innerHTML = `
+        <a href="${profileUrl}" class="attendee-card__photo-link" tabindex="-1" aria-hidden="true">
+          <img class="attendee-card__photo" src="${photoSrc}" alt="${altText}" loading="lazy" width="200" height="250">
+        </a>
+        <div class="attendee-card__body">
+          <a href="${profileUrl}" class="attendee-card__name">${a.name}</a>
+          <p class="attendee-card__state">
+            ${a.state}
+            <span class="attendee-card__state-size">(${stateSizeLabel})</span>
+          </p>
+          <p class="attendee-card__occupation">${a.occupationCategory || ''}</p>
+          <span class="attendee-card__badge ${badgeClass}">${signedLabel}</span>
+        </div>`;
+
+      return card;
+    }
+
+    // -------------------------------------------------------
+    // Filtering
+    // -------------------------------------------------------
+    function applyFilters() {
+      const state     = document.getElementById('filter-state').value;
+      const occ       = document.getElementById('filter-occupation').value;
+      const age       = document.getElementById('filter-age').value;
+      const statesize = document.getElementById('filter-statesize').value;
+      const signed    = document.getElementById('filter-signed').value;
+
+      const cards  = document.querySelectorAll('.attendee-card');
+      let visible  = 0;
+
+      for (const card of cards) {
+        const match =
+          (!state     || card.dataset.state === state) &&
+          (!occ       || card.dataset.occupation === occ) &&
+          (!age       || card.dataset.age === age) &&
+          (!statesize || card.dataset.statesize === statesize) &&
+          (!signed    || card.dataset.signed === signed);
+        card.classList.toggle('hidden', !match);
+        if (match) visible++;
+      }
+
+      document.getElementById('results-count').textContent =
+        visible === allAttendees.length
+          ? `${allAttendees.length} delegates`
+          : `${visible} of ${allAttendees.length} delegates`;
+    }
+
+    function populateStateFilter(attendees) {
+      const sel = document.getElementById('filter-state');
+      const states = [...new Set(attendees.map(a => a.state))].sort((a, b) =>
+        stateOrder.indexOf(a) - stateOrder.indexOf(b)
+      );
+      for (const s of states) {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        sel.appendChild(opt);
+      }
+    }
+
+    // -------------------------------------------------------
+    // Init
+    // -------------------------------------------------------
+    const FEATURED_ORDER = [
+      'george_washington','alexander_hamilton','james_madison_jr',
+      'benjamin_franklin','elbridge_gerry','rufus_king',
+    ];
+
+    function sortAttendees(attendees) {
+      return [...attendees].sort((a, b) => {
+        const ai = FEATURED_ORDER.indexOf(a.id);
+        const bi = FEATURED_ORDER.indexOf(b.id);
+        if (ai !== -1 && bi !== -1) return ai - bi;
+        if (ai !== -1) return -1;
+        if (bi !== -1) return 1;
+        return 0;
+      });
+    }
+
+    async function init() {
+      try {
+        allAttendees = sortAttendees(await loadAttendees());
+        populateStateFilter(allAttendees);
+        renderCards(allAttendees);
+
+        document.getElementById('results-count').textContent =
+          `${allAttendees.length} delegates`;
+
+        // Wire up filters
+        for (const id of ['filter-state','filter-occupation','filter-age','filter-statesize','filter-signed']) {
+          document.getElementById(id).addEventListener('change', applyFilters);
+        }
+        document.getElementById('filter-reset').addEventListener('click', () => {
+          ['filter-state','filter-occupation','filter-age','filter-statesize','filter-signed'].forEach(id => {
+            document.getElementById(id).value = '';
+          });
+          applyFilters();
+        });
+
+      } catch (err) {
+        document.getElementById('attendees-grid').innerHTML =
+          `<div class="error-message"><strong>Could not load delegates.</strong>${err.message}</div>`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "general": [],
+  "delegates": {
+    "george_washington": {
+      "name": "George Washington",
+      "books": [
+        {
+          "title": "You Never Forget Your First",
+          "author": "Alexis Coe",
+          "cover": "images/books/never forget your first.jpg",
+          "description": "In the first biography of George Washington written by a woman, Alexis Coe examines some of the myths and legends surrounding the founding father and finds what truths lay behind them... if any.",
+          "link": "https://bookshop.org/a/11616/9780735224117",
+          "audience": ["adults", "teens"]
+        }
+      ]
+    }
+  }
+}

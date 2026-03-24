@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delegate — 1787 Constitutional Convention</title>
+  <meta name="description" content="Biography of a delegate to the 1787 Constitutional Convention.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="attendee-profile-page">
+
+  <!-- Navigation -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo" aria-label="Home">
+      <span class="logo-long">The Constitutional Convention Timeline</span>
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="debates.html">Read the Debates</a></li>
+      <li><a href="attendees.html" class="active">The Attendees</a></li>
+      <li><a href="books.html">Further Reading</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+    <button class="site-nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Back nav + prev/next -->
+  <div class="profile-back-nav">
+    <div class="profile-back-nav__inner">
+      <a href="attendees.html" class="profile-back-link">&larr; All Delegates</a>
+      <div class="profile-nav-btns">
+        <button class="profile-nav-btn" id="btn-prev" disabled>&larr; Prev</button>
+        <button class="profile-nav-btn" id="btn-next" disabled>Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile header (populated by JS) -->
+  <header class="profile-header" id="profile-header" aria-labelledby="profile-name">
+    <div class="profile-header__inner">
+      <!-- Skeleton while loading -->
+      <div class="profile-skeleton" style="width:100%;display:flex;gap:2.5rem;align-items:flex-start;">
+        <div class="skeleton-block" style="width:180px;height:225px;flex-shrink:0;border-radius:4px;"></div>
+        <div style="flex:1;">
+          <div class="skeleton-block" style="height:1rem;width:6rem;margin-bottom:1rem;"></div>
+          <div class="skeleton-block" style="height:2.5rem;width:70%;margin-bottom:1.5rem;"></div>
+          <div class="skeleton-block" style="height:1rem;width:90%;margin-bottom:0.75rem;"></div>
+          <div class="skeleton-block" style="height:1rem;width:60%;"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Profile content (populated by JS) -->
+  <main class="profile-content" id="profile-content" aria-live="polite">
+    <!-- Populated by JS -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__brand">The 1787 Convention</p>
+        <p>Biographical content adapted from Wikipedia under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Photos from Wikimedia Commons (public domain).</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-text-on-dark);margin-bottom:var(--space-4);line-height:var(--leading-prose);">
+          "We are now to decide forever the fate of Republican Government."
+        </p>
+        <p style="font-family:var(--font-ui);font-size:var(--text-sm);">— Gouverneur Morris, September 1787</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/debates-bundle.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/books.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    // -------------------------------------------------------
+    // Delegate ordering (alphabetical by last name)
+    // -------------------------------------------------------
+    const DELEGATE_ORDER = [
+      'abraham_baldwin','alexander_hamilton','alexander_martin',
+      'benjamin_franklin','caleb_strong','charles_cotesworth_pinckney',
+      'charles_pinckney','daniel_carroll','daniel_of_st_thomas_jenifer',
+      'david_brearly','edmund_j_randolph','elbridge_gerry',
+      'george_clymer','george_mason','george_read','george_washington',
+      'george_wythe','gouverneur_morris','gunning_bedford',
+      'hugh_williamson','jacob_broom','jared_ingersoll',
+      'james_madison','james_mcclurg','james_mchenry','james_wilson',
+      'john_blair','john_dickinson','john_f_mercer','john_langdon',
+      'john_lansing','john_rutledge','jonathan_dayton','luther_martin',
+      'nathaniel_gorham','nicholas_gilman','oliver_ellsworth',
+      'pierce_butler','richard_bassett','richard_dobbs_spaight',
+      'robert_morris','robert_yates','roger_sherman','rufus_king',
+      'thomas_fitzsimons','thomas_mifflin','william_blount',
+      'william_c_houston','william_few','william_houston',
+      'william_l_pierce','william_livingston','william_paterson',
+      'william_r_davie','william_samuel_johnson',
+    ];
+
+    let attendeeIndex = {};   // id → card metadata
+    let orderedIds    = [];   // ordered list of IDs that actually exist
+    let currentId     = null;
+
+    // -------------------------------------------------------
+    // Data loading
+    // -------------------------------------------------------
+    async function loadManifest() {
+      if (window.__ATTENDEES_MANIFEST__ && window.__ATTENDEES_MANIFEST__.length) {
+        return window.__ATTENDEES_MANIFEST__;
+      }
+      const resp = await fetch('data/attendees/attendees.json');
+      if (!resp.ok) throw new Error('Could not load attendees.json');
+      return resp.json();
+    }
+
+    async function loadProfile(id) {
+      if (window.__ATTENDEES_DATA__ && window.__ATTENDEES_DATA__[id]) {
+        return window.__ATTENDEES_DATA__[id];
+      }
+      const resp = await fetch(`data/attendees/attendee_${id}.json`);
+      if (!resp.ok) throw new Error(`Could not load profile for ${id}`);
+      return resp.json();
+    }
+
+    // -------------------------------------------------------
+    // Render
+    // -------------------------------------------------------
+    function renderHeader(data) {
+      const stateSizeLabel = data.stateSize === 'big' ? 'Big State' : 'Little State';
+      const stateSizeBadge = data.stateSize === 'big'
+        ? 'profile-badge--big-state' : 'profile-badge--small-state';
+      const signedLabel    = data.signedConstitution ? 'Signed the Constitution' : 'Did not sign';
+      const signedBadge    = data.signedConstitution
+        ? 'profile-badge--signed' : 'profile-badge--unsigned';
+
+      const photoSrc   = data.photoCard || 'images/attendees/placeholder.webp';
+      const ageStr     = data.ageAtConvention ? `Age ${data.ageAtConvention} at convention` : '';
+      const birthStr   = data.birthYear ? `b. ${data.birthYear}` : '';
+
+      document.getElementById('profile-header').innerHTML = `
+        <div class="profile-header__inner">
+          <img class="profile-header__photo"
+               src="${photoSrc}"
+               alt="Portrait of ${data.name}"
+               width="180"
+               loading="eager">
+          <div class="profile-header__info">
+            <p class="profile-header__state-eyebrow">${data.state}</p>
+            <h1 class="profile-header__name" id="profile-name">${data.name}</h1>
+            <div class="profile-header__meta">
+              ${ageStr ? `<span class="profile-meta-item"><span class="profile-meta-item__label">Age</span>${ageStr.replace('Age ','')}</span>` : ''}
+              ${birthStr ? `<span class="profile-meta-item"><span class="profile-meta-item__label">Born</span>${birthStr.replace('b. ','')}</span>` : ''}
+              ${data.occupationCategory ? `<span class="profile-meta-item"><span class="profile-meta-item__label">Occupation</span>${data.occupationRaw || data.occupationCategory}</span>` : ''}
+            </div>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+              <span class="profile-badge ${signedBadge}">${signedLabel}</span>
+              <span class="profile-badge ${stateSizeBadge}">${stateSizeLabel}</span>
+            </div>
+          </div>
+        </div>`;
+
+      // Update page title
+      document.title = `${data.name} — 1787 Constitutional Convention`;
+    }
+
+    async function renderContent(data) {
+      const main = document.getElementById('profile-content');
+      let html = '';
+
+      // Biography section
+      if (data.introHtml) {
+        html += `
+          <section class="profile-section">
+            <h2 class="profile-section-title">Biography</h2>
+            <div class="profile-text">${data.introHtml}</div>
+          </section>`;
+      }
+
+      // Convention section
+      if (data.conventionHtml) {
+        html += `
+          <section class="profile-section">
+            <h2 class="profile-section-title">At the Constitutional Convention</h2>
+            <div class="profile-text">${data.conventionHtml}</div>
+          </section>`;
+      }
+
+      // Fallback if no content
+      if (!data.introHtml && !data.conventionHtml) {
+        html = `<p class="profile-text" style="color:var(--color-text-muted);padding:var(--space-8) 0;">
+          Detailed biographical information is not available for this delegate.</p>`;
+      }
+
+      main.innerHTML = html;
+
+      // Further Reading section (conditionally appended via DOM)
+      if (typeof renderBooksForDelegate === 'function') {
+        await renderBooksForDelegate(data.id, main);
+      }
+
+      // Wikipedia link (always last)
+      if (data.wikiUrl) {
+        var wikiLink = document.createElement('a');
+        wikiLink.className = 'profile-wiki-link';
+        wikiLink.href = data.wikiUrl;
+        wikiLink.target = '_blank';
+        wikiLink.rel = 'noopener';
+        wikiLink.innerHTML = 'Read full article on Wikipedia &rarr;';
+        main.appendChild(wikiLink);
+      }
+    }
+
+    function updateNavButtons(id) {
+      const idx  = orderedIds.indexOf(id);
+      const prev = document.getElementById('btn-prev');
+      const next = document.getElementById('btn-next');
+
+      if (idx > 0) {
+        prev.disabled = false;
+        prev.onclick  = () => navigate(orderedIds[idx - 1]);
+      } else {
+        prev.disabled = true;
+        prev.onclick  = null;
+      }
+
+      if (idx < orderedIds.length - 1) {
+        next.disabled = false;
+        next.onclick  = () => navigate(orderedIds[idx + 1]);
+      } else {
+        next.disabled = true;
+        next.onclick  = null;
+      }
+    }
+
+    // -------------------------------------------------------
+    // Navigation
+    // -------------------------------------------------------
+    function getHashId() {
+      const hash = location.hash.replace('#', '').trim();
+      return hash || null;
+    }
+
+    function navigate(id) {
+      history.pushState(null, '', `#${id}`);
+      loadAndRender(id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function loadAndRender(id) {
+      if (!id || !attendeeIndex[id]) {
+        // Unknown ID — show error
+        document.getElementById('profile-header').innerHTML = `
+          <div class="profile-header__inner">
+            <div>
+              <p class="profile-header__state-eyebrow">Error</p>
+              <h1 class="profile-header__name" id="profile-name">Delegate not found</h1>
+            </div>
+          </div>`;
+        document.getElementById('profile-content').innerHTML =
+          `<div class="error-message"><strong>Unknown delegate ID: "${id}"</strong><br>
+           <a href="attendees.html">Return to all delegates &rarr;</a></div>`;
+        return;
+      }
+
+      currentId = id;
+      updateNavButtons(id);
+
+      try {
+        const data = await loadProfile(id);
+        renderHeader(data);
+        renderContent(data);
+      } catch (err) {
+        document.getElementById('profile-content').innerHTML =
+          `<div class="error-message"><strong>Could not load profile.</strong> ${err.message}</div>`;
+      }
+    }
+
+    // -------------------------------------------------------
+    // Init
+    // -------------------------------------------------------
+    async function init() {
+      try {
+        const manifest = await loadManifest();
+
+        // Build index
+        for (const a of manifest) {
+          attendeeIndex[a.id] = a;
+        }
+
+        // Build ordered list: use DELEGATE_ORDER as a base, fall back to manifest order
+        const manifestIds = manifest.map(a => a.id);
+        const seen = new Set();
+        for (const id of DELEGATE_ORDER) {
+          if (attendeeIndex[id]) {
+            orderedIds.push(id);
+            seen.add(id);
+          }
+        }
+        // Append any IDs in manifest but not in DELEGATE_ORDER
+        for (const id of manifestIds) {
+          if (!seen.has(id)) orderedIds.push(id);
+        }
+
+        // Load delegate from hash, or default to first
+        const hashId = getHashId();
+        const startId = (hashId && attendeeIndex[hashId]) ? hashId : orderedIds[0];
+        await loadAndRender(startId);
+
+      } catch (err) {
+        document.getElementById('profile-header').innerHTML = '';
+        document.getElementById('profile-content').innerHTML =
+          `<div class="error-message"><strong>Could not load delegate data.</strong> ${err.message}</div>`;
+      }
+    }
+
+    window.addEventListener('popstate', () => {
+      const id = getHashId();
+      if (id && attendeeIndex[id]) loadAndRender(id);
+    });
+
+    document.addEventListener('DOMContentLoaded', init);
+  })();
+  </script>
+</body>
+</html>

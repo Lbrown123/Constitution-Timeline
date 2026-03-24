@@ -1,0 +1,19 @@
+{
+  "id": "nathaniel_gorham",
+  "name": "Nathaniel Gorham",
+  "state": "Massachusetts",
+  "stateSize": "big",
+  "occupationRaw": "Politician, Merchant",
+  "occupationCategory": "Merchant",
+  "birthYear": 1738,
+  "ageAtConvention": 49,
+  "ageDecade": "40s",
+  "signedConstitution": true,
+  "wikiTitle": "Nathaniel Gorham",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Nathaniel_Gorham",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Nathaniel_Gorham.jpg/500px-Nathaniel_Gorham.jpg",
+  "photoCard": "images/attendees/nathaniel_gorham.webp",
+  "photoProfile": "images/attendees/nathaniel_gorham_lg.webp",
+  "introHtml": "<p><b>Nathaniel Gorham</b> (May 27, 1738 – June 11, 1796; sometimes spelled <i>Nathanial</i>) was an American Founding Father, merchant, and politician from Massachusetts. He was a delegate from the Bay Colony to the Continental Congress and for six months served as the presiding officer of that body under the Articles of Confederation. He also attended the Constitutional Convention, served on its Committee of Detail, and signed the United States Constitution.\n</p>",
+  "conventionHtml": ""
+}

@@ -1,0 +1,19 @@
+{
+  "id": "jacob_broom",
+  "name": "Jacob Broom",
+  "state": "Delaware",
+  "stateSize": "small",
+  "occupationRaw": "Merchant, Surveyor, Politician, Manufacturer",
+  "occupationCategory": "Merchant",
+  "birthYear": 1752,
+  "ageAtConvention": 35,
+  "ageDecade": "30s",
+  "signedConstitution": true,
+  "wikiTitle": "Jacob Broom",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Jacob_Broom",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jacob_Broom.jpg/500px-Jacob_Broom.jpg",
+  "photoCard": "images/attendees/jacob_broom.webp",
+  "photoProfile": "images/attendees/jacob_broom_lg.webp",
+  "introHtml": "<p><b>Jacob Broom</b> (October 17, 1752 – April 25, 1810) was an American Founding Father, businessman, and politician from Wilmington, Delaware. As a delegate to the U.S. Constitutional Convention of 1787, he was a signer of the United States Constitution.  He was also appointed as a delegate to the Annapolis Convention in 1786 but did not attend, and he served in the Delaware General Assembly.  He was the father of Congressman James M. Broom and grandfather of Congressman Jacob Broom.\n</p>",
+  "conventionHtml": ""
+}

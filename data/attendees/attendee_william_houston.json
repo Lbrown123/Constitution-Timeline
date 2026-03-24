@@ -1,0 +1,19 @@
+{
+  "id": "william_houston",
+  "name": "William Houston",
+  "state": "Georgia",
+  "stateSize": "big",
+  "occupationRaw": "Lawyer, Planter, Statesman",
+  "occupationCategory": "Planter/Farmer",
+  "birthYear": 1755,
+  "ageAtConvention": 32,
+  "ageDecade": "30s",
+  "signedConstitution": false,
+  "wikiTitle": "William Houstoun (lawyer)",
+  "wikiUrl": "https://en.wikipedia.org/wiki/William_Houstoun_%28lawyer%29",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/William_Houstoun_by_Archibald_Robertson%2C_1791.jpg",
+  "photoCard": "images/attendees/william_houston.webp",
+  "photoProfile": "images/attendees/william_houston_lg.webp",
+  "introHtml": "<p><b>William Houstoun</b> (<span class=\"rt-commentedText nowrap\"><span class=\"IPA nopopups noexcerpt\" lang=\"en-fonipa\">/ˈhaʊstən/</span></span> HOW-stən; 1755 – March 17, 1813) was a Founding Father of the United States, statesman, and lawyer.  He served the Province of Georgia as a delegate to the Continental Congress and later the State of Georgia to the United States Constitutional Convention in 1787.\n</p>",
+  "conventionHtml": ""
+}

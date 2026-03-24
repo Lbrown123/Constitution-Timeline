@@ -178,7 +178,7 @@ function renderDay(data) {
 
   // Day counter
   const counter = document.getElementById('day-counter');
-  if (counter) counter.textContent = `Day ${idx + 1} of ${manifest.days.length}`;
+  if (counter) counter.textContent = `Day ${idx} of ${manifest.days.length - 1}`;
 
   // Notable badge
   const badge = document.getElementById('day-notable-badge');
@@ -191,45 +191,74 @@ function renderDay(data) {
     }
   }
 
-  // Title
-  const titleEl = document.getElementById('day-title');
-  if (titleEl) titleEl.textContent = data.title || meta.label;
+  // Day of week
+  const dowEl = document.getElementById('day-dayofweek');
+  if (dowEl) dowEl.textContent = getDayOfWeek(data.dates && data.dates[0]);
 
-  // Debate body
+  // Full date with year
+  const dateEl = document.getElementById('day-date');
+  if (dateEl) dateEl.textContent = formatFullDate(data.dates && data.dates[0], data.title || meta.label);
+
+  // Summary title (hidden on pages without Madison's Notes)
+  const summaryTitle = document.querySelector('.day-summary .day-section-title');
+  if (summaryTitle) summaryTitle.style.display = data.contentHtml ? '' : 'none';
+
+  // Summary
+  const summaryEl = document.getElementById('day-summary-text');
+  if (summaryEl) {
+    if (data.summary) {
+      summaryEl.innerHTML = data.summary;
+      summaryEl.classList.remove('day-summary-placeholder');
+    } else {
+      summaryEl.textContent = 'A brief summary of this day\'s proceedings will be added here.';
+      summaryEl.classList.add('day-summary-placeholder');
+    }
+  }
+
+  // Debate body and bottom nav (hidden on pages without notes)
+  const notesSection = document.querySelector('.day-notes-section');
+  const bottomNav = document.querySelector('.day-nav:not(.day-nav--top)');
   const bodyEl = document.getElementById('debate-body');
-  if (bodyEl) {
-    bodyEl.innerHTML = data.contentHtml || '<p><em>No content available for this day.</em></p>';
+  if (data.contentHtml) {
+    if (notesSection) notesSection.style.display = '';
+    if (bottomNav) bottomNav.style.display = '';
+    if (bodyEl) bodyEl.innerHTML = stripLeadingH4(data.contentHtml);
+  } else {
+    if (notesSection) notesSection.style.display = 'none';
+    if (bottomNav) bottomNav.style.display = 'none';
   }
 
   // Prev/Next navigation
   updateDayNav(idx);
 
   // Update page title
-  document.title = `${data.title || meta.label} — The 1787 Convention`;
+  const pageDate = formatFullDate(data.dates && data.dates[0], data.title || meta.label);
+  document.title = `${pageDate} — The 1787 Convention`;
 }
 
 // ============================================================
 // Prev / Next navigation
 // ============================================================
 function updateDayNav(currentIdx) {
-  const prevBtn = document.getElementById('prev-day');
-  const nextBtn = document.getElementById('next-day');
-  const prevLabel = document.getElementById('prev-day-label');
-  const nextLabel = document.getElementById('next-day-label');
-
   const prev = manifest.days[currentIdx - 1];
   const next = manifest.days[currentIdx + 1];
 
-  if (prevBtn) {
-    prevBtn.disabled = !prev;
-    if (prevLabel) prevLabel.textContent = prev ? prev.label : 'Previous';
-    prevBtn.onclick = prev ? () => loadDay(prev.id) : null;
-  }
+  for (const suffix of ['', '-top']) {
+    const prevBtn   = document.getElementById(`prev-day${suffix}`);
+    const nextBtn   = document.getElementById(`next-day${suffix}`);
+    const prevLabel = document.getElementById(`prev-day-label${suffix}`);
+    const nextLabel = document.getElementById(`next-day-label${suffix}`);
 
-  if (nextBtn) {
-    nextBtn.disabled = !next;
-    if (nextLabel) nextLabel.textContent = next ? next.label : 'Next';
-    nextBtn.onclick = next ? () => loadDay(next.id) : null;
+    if (prevBtn) {
+      prevBtn.disabled = !prev;
+      if (prevLabel) prevLabel.textContent = prev ? prev.label : 'Previous';
+      prevBtn.onclick = prev ? () => loadDay(prev.id) : null;
+    }
+    if (nextBtn) {
+      nextBtn.disabled = !next;
+      if (nextLabel) nextLabel.textContent = next ? next.label : 'Next';
+      nextBtn.onclick = next ? () => loadDay(next.id) : null;
+    }
   }
 }
 
@@ -332,9 +361,32 @@ function groupByMonth(days) {
 }
 
 const MONTH_NAMES = {
-  5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September'
+  0: 'Intro', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September'
 };
 
 function monthName(num) {
   return MONTH_NAMES[num] || String(num);
+}
+
+// ============================================================
+// Date formatting helpers
+// ============================================================
+const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTH_NAMES_LONG = ['January','February','March','April','May','June',
+                          'July','August','September','October','November','December'];
+
+function getDayOfWeek(isoDate) {
+  if (!isoDate) return '';
+  const [year, month, day] = isoDate.split('-').map(Number);
+  return DAY_NAMES[new Date(year, month - 1, day).getDay()];
+}
+
+function formatFullDate(isoDate, fallback) {
+  if (!isoDate) return fallback || '';
+  const [year, month, day] = isoDate.split('-').map(Number);
+  return `${MONTH_NAMES_LONG[month - 1]} ${day}, ${year}`;
+}
+
+function stripLeadingH4(html) {
+  return html.replace(/^\s*<[Hh]4[^>]*>[^<]*<\/[Hh]4>\s*/, '').trim();
 }

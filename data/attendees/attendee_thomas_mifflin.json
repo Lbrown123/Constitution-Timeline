@@ -1,0 +1,19 @@
+{
+  "id": "thomas_mifflin",
+  "name": "Thomas Mifflin",
+  "state": "Pennsylvania",
+  "stateSize": "big",
+  "occupationRaw": "Merchant, Soldier, Politician",
+  "occupationCategory": "Merchant",
+  "birthYear": 1744,
+  "ageAtConvention": 43,
+  "ageDecade": "40s",
+  "signedConstitution": true,
+  "wikiTitle": "Thomas Mifflin",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Thomas_Mifflin",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Thomas_Mifflin.jpg",
+  "photoCard": "images/attendees/thomas_mifflin.webp",
+  "photoProfile": "images/attendees/thomas_mifflin_lg.webp",
+  "introHtml": "<p><b>Thomas Mifflin</b> (January 10, 1744 – January 20, 1800) was an American merchant, soldier, and politician from Pennsylvania, who is regarded as a Founding Father of the United States for his roles during and after the American Revolution. Mifflin signed the United States Constitution, was the first governor of Pennsylvania, serving from 1790 to 1799, and was also the state's last president, succeeding Benjamin Franklin in 1788.\n</p><p>Born in Philadelphia, Mifflin became a merchant following his graduation from the College of Philadelphia. After serving in the Pennsylvania Provincial Assembly and the First Continental Congress, where he signed the Continental Association, he joined the Continental Army in 1775. During the Revolutionary War, Mifflin was an aide to General George Washington and was appointed the army's Quartermaster General, rising to the rank of major general. He returned to Congress in 1782 and was elected president of the Congress the following year. He served as speaker of the Pennsylvania House of Representatives from 1785 to 1787 and as president of Pennsylvania's Supreme Executive Council from 1788 to 1790.\n</p><p>Mifflin was a delegate to the Constitutional Convention in 1787 and signed the United States Constitution. He then presided over the committee that wrote Pennsylvania's state constitution, becoming the state's first governor after the constitution's ratification in 1790. Mifflin left office as governor in 1799 and died the following year.\n</p>",
+  "conventionHtml": ""
+}

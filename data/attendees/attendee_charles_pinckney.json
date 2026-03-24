@@ -1,0 +1,19 @@
+{
+  "id": "charles_pinckney",
+  "name": "Charles Pinckney",
+  "state": "South Carolina",
+  "stateSize": "big",
+  "occupationRaw": "Lawyer, Statesman",
+  "occupationCategory": "Lawyer",
+  "birthYear": 1757,
+  "ageAtConvention": 30,
+  "ageDecade": "30s",
+  "signedConstitution": true,
+  "wikiTitle": "Charles Pinckney (governor)",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Charles_Pinckney_%28governor%29",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Charles-Pinckney_-_Gilbert_Stuart.jpg",
+  "photoCard": "images/attendees/charles_pinckney.webp",
+  "photoProfile": "images/attendees/charles_pinckney_lg.webp",
+  "introHtml": "<p><b>Charles Pinckney Jr.</b> (October 26, 1757 – October 29, 1824) was an American Founding Father, planter, and politician who was a signer of the United States Constitution. He was elected and served as the 37th governor of South Carolina, later serving two more non-consecutive terms. He also served as a U.S. Senator and a member of the House of Representatives. He was a first cousin once removed of fellow signer Charles Cotesworth Pinckney.\n</p><p>Pinckney's descendants included seven future South Carolina governors, including men related to the Maybank and Rhett families.\n</p>",
+  "conventionHtml": ""
+}

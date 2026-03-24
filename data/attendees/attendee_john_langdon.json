@@ -1,0 +1,19 @@
+{
+  "id": "john_langdon",
+  "name": "John Langdon",
+  "state": "New Hampshire",
+  "stateSize": "small",
+  "occupationRaw": "",
+  "occupationCategory": "Statesman",
+  "birthYear": 1741,
+  "ageAtConvention": 46,
+  "ageDecade": "40s",
+  "signedConstitution": true,
+  "wikiTitle": "John Langdon (politician)",
+  "wikiUrl": "https://en.wikipedia.org/wiki/John_Langdon_%28politician%29",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/John_langdon.jpg/500px-John_langdon.jpg",
+  "photoCard": "images/attendees/john_langdon.webp",
+  "photoProfile": "images/attendees/john_langdon_lg.webp",
+  "introHtml": "<p><b>John Langdon Jr.</b> (June 26, 1741 – September 18, 1819) was an American politician and Founding Father from New Hampshire. He served as a delegate to the Constitutional Convention, signed the United States Constitution, and was one of the first two United States senators from New Hampshire.\n</p><p>As a member of the Continental Congress, Langdon was an early supporter of the Revolutionary War. He later served in the United States Congress for 12 years, including as the first president pro tempore of the Senate, before becoming president and later governor of New Hampshire. He turned down a nomination for U.S. vice presidential candidate in 1812.\n</p>",
+  "conventionHtml": ""
+}

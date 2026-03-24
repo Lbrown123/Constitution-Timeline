@@ -1,0 +1,19 @@
+{
+  "id": "john_f_mercer",
+  "name": "John F. Mercer",
+  "state": "Maryland",
+  "stateSize": "small",
+  "occupationRaw": "Lawyer, Politician",
+  "occupationCategory": "Lawyer",
+  "birthYear": 1759,
+  "ageAtConvention": 28,
+  "ageDecade": "20s",
+  "signedConstitution": false,
+  "wikiTitle": "John Francis Mercer",
+  "wikiUrl": "https://en.wikipedia.org/wiki/John_Francis_Mercer",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Gov._John_Francis_Mercer_-_Robert_Field_1803.jpg/500px-Gov._John_Francis_Mercer_-_Robert_Field_1803.jpg",
+  "photoCard": "images/attendees/john_f_mercer.webp",
+  "photoProfile": "images/attendees/john_f_mercer_lg.webp",
+  "introHtml": "<p><b>John Francis Mercer</b> (May 17, 1759 – August 30, 1821) was a Founding Father of the United States, politician, lawyer, planter, and slave owner from Virginia and Maryland. An officer during the Revolutionary War, Mercer initially served in the Virginia House of Delegates and then the Maryland State Assembly. As a member of the assembly, he was appointed a delegate from Maryland to the Philadelphia Convention of 1787, where he was a framer of the U.S. Constitution though he left the convention before signing. Mercer was later elected to the U.S. House of Representatives from two different districts in Maryland. In 1801—1803, he served as Maryland's 10th governor.\n</p>",
+  "conventionHtml": ""
+}

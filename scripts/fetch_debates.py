@@ -20,7 +20,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-DATA_DIR = SCRIPT_DIR.parent / 'data'
+DATA_DIR = SCRIPT_DIR.parent / 'data' / 'debates'
+MANIFEST_PATH = SCRIPT_DIR.parent / 'data' / 'manifest.json'
 BASE_URL = 'https://avalon.law.yale.edu/18th_century/'
 DELAY_S = 1.5
 FORCE = '--force' in sys.argv
@@ -252,17 +253,14 @@ def scrape_day(day):
     title = extract_title(html)
     content_raw = extract_content(html)
     content_html = fix_footnote_links(content_raw)
-    attendees = extract_attendees(content_html)
     footnotes = extract_footnotes(html)
     word_count = count_words(content_html)
 
     data = {
         'id': day['id'],
-        'sourceUrl': url,
         'dates': day['dates'],
         'label': day['label'],
         'title': title,
-        'attendees': attendees,
         'contentHtml': content_html,
         'footnotes': footnotes,
         'scrapedAt': datetime.now(timezone.utc).isoformat(),
@@ -286,7 +284,7 @@ def write_manifest():
         'days': [
             {
                 'id': d['id'],
-                'file': f'{d["id"]}.json',
+                'file': f'debates/{d["id"]}.json',
                 'dates': d['dates'],
                 'label': d['label'],
                 'month': d['month'],
@@ -295,13 +293,13 @@ def write_manifest():
             for d in DAYS
         ],
     }
-    out_path = DATA_DIR / 'manifest.json'
-    out_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding='utf-8')
+    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding='utf-8')
     print(f'\n✓ Manifest written to data/manifest.json ({len(DAYS)} days)')
 
 
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     print('Constitutional Convention Debate Scraper')
     print(f'Mode: {"force re-fetch all" if FORCE else "skip existing"}')

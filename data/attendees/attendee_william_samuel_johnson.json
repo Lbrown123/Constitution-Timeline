@@ -1,0 +1,19 @@
+{
+  "id": "william_samuel_johnson",
+  "name": "William Samuel Johnson",
+  "state": "Connecticut",
+  "stateSize": "small",
+  "occupationRaw": "Politician, Clergyman",
+  "occupationCategory": "Statesman",
+  "birthYear": 1727,
+  "ageAtConvention": 60,
+  "ageDecade": "60s",
+  "signedConstitution": true,
+  "wikiTitle": "William Samuel Johnson",
+  "wikiUrl": "https://en.wikipedia.org/wiki/William_Samuel_Johnson",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/John_Wesley_Jarvis_-_William_Samuel_Johnson_-_NPG.72.20_-_National_Portrait_Gallery.jpg/500px-John_Wesley_Jarvis_-_William_Samuel_Johnson_-_NPG.72.20_-_National_Portrait_Gallery.jpg",
+  "photoCard": "images/attendees/william_samuel_johnson.webp",
+  "photoProfile": "images/attendees/william_samuel_johnson_lg.webp",
+  "introHtml": "<p><b>William Samuel Johnson</b> (October 7, 1727 – November 14, 1819) was an American Founding Father and statesman. He attended all of the four founding American Congresses: the Stamp Act Congress in 1765, the Congress of the Confederation in 1785–1787, the United States Constitutional Convention in 1787 where he was chairman of the Committee of Style that drafted the final version of the United States Constitution, and as a senator from Connecticut in the first United States Congress in 1789–1791. He also served as the third president of Columbia University (then known as Columbia College).\n</p>",
+  "conventionHtml": ""
+}

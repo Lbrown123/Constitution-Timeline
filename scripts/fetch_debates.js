@@ -13,7 +13,8 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(__dirname, '..', 'data');
+const DATA_DIR = join(__dirname, '..', 'data', 'debates');
+const MANIFEST_PATH = join(__dirname, '..', 'data', 'manifest.json');
 const BASE_URL = 'https://avalon.law.yale.edu/18th_century/';
 const DELAY_MS = 1500;
 const FORCE = process.argv.includes('--force');
@@ -21,7 +22,8 @@ const MANIFEST_ONLY = process.argv.includes('--manifest-only');
 
 // Complete list of all 87 debate day entries
 const DAYS = [
-  { id: 'debates_514525', dates: ['1787-05-14', '1787-05-25'], label: 'May 14 & 25',   month: 5, notable: 'Convention opens; quorum achieved May 25' },
+  { id: 'debates_514',    dates: ['1787-05-14'], label: 'May 14',    month: 5, notable: 'Convention convenes; quorum not yet met' },
+  { id: 'debates_525',    dates: ['1787-05-25'], label: 'May 25',    month: 5, notable: 'Quorum achieved; Washington elected president' },
   { id: 'debates_528',    dates: ['1787-05-28'], label: 'May 28',    month: 5, notable: null },
   { id: 'debates_529',    dates: ['1787-05-29'], label: 'May 29',    month: 5, notable: 'Virginia Plan introduced' },
   { id: 'debates_530',    dates: ['1787-05-30'], label: 'May 30',    month: 5, notable: null },
@@ -273,17 +275,14 @@ async function scrapeDay(day) {
   const title = extractTitle(html);
   const contentRaw = extractContent(html);
   const contentHtml = fixFootnoteLinks(contentRaw);
-  const attendees = extractAttendees(contentHtml);
   const footnotes = extractFootnotes(html);
   const wordCount = countWords(contentHtml);
 
   const data = {
     id: day.id,
-    sourceUrl: url,
     dates: day.dates,
     label: day.label,
     title,
-    attendees,
     contentHtml,
     footnotes,
     scrapedAt: new Date().toISOString(),
@@ -307,7 +306,7 @@ function writeManifest() {
     },
     days: DAYS.map(d => ({
       id: d.id,
-      file: `${d.id}.json`,
+      file: `debates/${d.id}.json`,
       dates: d.dates,
       label: d.label,
       month: d.month,
@@ -315,13 +314,14 @@ function writeManifest() {
     })),
   };
 
-  const outPath = join(DATA_DIR, 'manifest.json');
-  writeFileSync(outPath, JSON.stringify(manifest, null, 2), 'utf-8');
+  writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2), 'utf-8');
   console.log(`\n✓ Manifest written to data/manifest.json (${DAYS.length} days)`);
 }
 
 async function main() {
   if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
+  const manifestDir = join(MANIFEST_PATH, '..');
+  if (!existsSync(manifestDir)) mkdirSync(manifestDir, { recursive: true });
 
   console.log('Constitutional Convention Debate Scraper');
   console.log(`Mode: ${FORCE ? 'force re-fetch all' : 'skip existing'}`);

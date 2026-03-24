@@ -27,5 +27,35 @@ function initNav() {
   });
 }
 
+/**
+ * Hamburger menu toggle for mobile nav.
+ */
+function initNavToggle() {
+  const toggle = document.querySelector('.site-nav__toggle');
+  const nav = document.querySelector('.site-nav');
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('site-nav--open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close when a nav link is clicked
+  nav.querySelectorAll('.site-nav__links a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('site-nav--open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close when clicking outside the nav
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target)) {
+      nav.classList.remove('site-nav--open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 // Run nav init on every page
-document.addEventListener('DOMContentLoaded', initNav);
+document.addEventListener('DOMContentLoaded', () => { initNav(); initNavToggle(); });

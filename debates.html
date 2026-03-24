@@ -16,13 +16,18 @@
   <!-- Navigation -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <a href="index.html" class="site-nav__logo" aria-label="Home">
-      <span class="logo-long">The 1787 Convention</span>
+      <span class="logo-long">The Constitutional Convention Timeline</span>
     </a>
     <ul class="site-nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="debates.html" class="active">Read the Debates</a></li>
+      <li><a href="attendees.html">The Attendees</a></li>
+      <li><a href="books.html">Further Reading</a></li>
       <li><a href="index.html#about">About</a></li>
     </ul>
+    <button class="site-nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- Main layout (full width, no sidebar) -->
@@ -53,12 +58,34 @@
           <!-- Day header -->
           <header class="day-header">
             <p class="day-counter" id="day-counter"></p>
+            <h1 class="day-title" id="day-dayofweek"></h1>
+            <p class="day-date" id="day-date"></p>
             <div id="day-notable-badge" class="day-notable-badge" style="display:none;"></div>
-            <h1 class="day-title" id="day-title"></h1>
           </header>
 
-          <!-- Debate body -->
-          <article class="debate-body" id="debate-body" aria-live="polite"></article>
+          <!-- Summary -->
+          <section class="day-summary">
+            <h2 class="day-section-title">Summary</h2>
+            <div class="day-summary-placeholder" id="day-summary-text">A brief summary of this day's proceedings will be added here.</div>
+          </section>
+
+          <!-- Prev / Next navigation (top) -->
+          <nav class="day-nav day-nav--top" aria-label="Previous and next debate days">
+            <button class="day-nav__btn day-nav__btn--prev" id="prev-day-top" disabled>
+              <span aria-hidden="true">&larr;</span>
+              <span id="prev-day-label-top">Previous</span>
+            </button>
+            <button class="day-nav__btn day-nav__btn--next" id="next-day-top" disabled>
+              <span id="next-day-label-top">Next</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </nav>
+
+          <!-- Madison's Notes -->
+          <section class="day-notes-section">
+            <h2 class="day-section-title">Madison's Notes</h2>
+            <article class="debate-body" id="debate-body" aria-live="polite"></article>
+          </section>
 
           <!-- Prev / Next navigation -->
           <nav class="day-nav" aria-label="Previous and next debate days">
@@ -93,5 +120,6 @@
   <script src="data/debates-bundle.js"></script>
   <script src="js/main.js"></script>
   <script src="js/debates.js"></script>
+  <script src="js/delegate-popup.js"></script>
 </body>
 </html>

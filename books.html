@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Further Reading — 1787 Constitutional Convention</title>
+  <meta name="description" content="Recommended books about the 1787 Constitutional Convention and its delegates.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="books-page">
+
+  <!-- Navigation -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo" aria-label="Home">
+      <span class="logo-long">The Constitutional Convention Timeline</span>
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="debates.html">Read the Debates</a></li>
+      <li><a href="attendees.html">The Attendees</a></li>
+      <li><a href="books.html" class="active">Further Reading</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+    <button class="site-nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="books-header" aria-labelledby="books-title">
+    <p class="books-header__eyebrow">Philadelphia, 1787</p>
+    <h1 class="books-header__title" id="books-title">Further Reading</h1>
+    <p class="books-header__sub">
+      Explore books about the Constitutional Convention and the delegates who shaped the nation.
+    </p>
+  </header>
+
+  <!-- Filter Bar -->
+  <div class="books-filters" role="search" aria-label="Filter books">
+    <div class="books-filters__inner">
+      <span class="books-filters__label">Filter by</span>
+      <div>
+        <label for="filter-delegate" class="visually-hidden">Delegate</label>
+        <select id="filter-delegate" class="books-filters__select" aria-label="Filter by delegate">
+          <option value="">All Books</option>
+        </select>
+      </div>
+      <div>
+        <label for="filter-audience" class="visually-hidden">Audience</label>
+        <select id="filter-audience" class="books-filters__select" aria-label="Filter by audience">
+          <option value="">All Audiences</option>
+          <option value="kids">For Kids</option>
+          <option value="teens">For Teens</option>
+          <option value="adults">For Adults</option>
+        </select>
+      </div>
+      <button class="books-filters__reset" id="filter-reset" type="button" aria-label="Reset filter">Reset</button>
+    </div>
+  </div>
+
+  <!-- Books Content -->
+  <main class="books-content" id="books-content">
+    <p class="books-empty" id="loading-msg">Loading books&hellip;</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__brand">The 1787 Convention</p>
+        <p>Book recommendations curated for students of the Constitutional Convention.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-lg);color:var(--color-text-on-dark);margin-bottom:var(--space-4);line-height:var(--leading-prose);">
+          "We are now to decide forever the fate of Republican Government."
+        </p>
+        <p style="font-family:var(--font-ui);font-size:var(--text-sm);">— Gouverneur Morris, September 1787</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/debates-bundle.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/books.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var contentEl = document.getElementById('books-content');
+    var filterSelect = document.getElementById('filter-delegate');
+    var audienceSelect = document.getElementById('filter-audience');
+    var resetBtn = document.getElementById('filter-reset');
+
+    // -----------------------------------------------------------
+    // Build the page
+    // -----------------------------------------------------------
+    function renderPage(data) {
+      contentEl.innerHTML = '';
+
+      var general = data.general || [];
+      var delegates = data.delegates || {};
+
+      // Sort delegate IDs alphabetically by display name
+      var delegateIds = Object.keys(delegates).sort(function (a, b) {
+        var nameA = (delegates[a].name || a).toLowerCase();
+        var nameB = (delegates[b].name || b).toLowerCase();
+        // Sort by last name (last word in the name)
+        var lastA = nameA.split(' ').pop();
+        var lastB = nameB.split(' ').pop();
+        return lastA.localeCompare(lastB);
+      });
+
+      var hasAnyBooks = general.length > 0 || delegateIds.some(function (id) {
+        return delegates[id].books && delegates[id].books.length > 0;
+      });
+
+      if (!hasAnyBooks) {
+        contentEl.innerHTML = '<p class="books-empty">No books have been added yet. Check back soon!</p>';
+        return;
+      }
+
+      // Populate filter dropdown
+      filterSelect.innerHTML = '<option value="">All Books</option>';
+      if (general.length > 0) {
+        var genOpt = document.createElement('option');
+        genOpt.value = '__general__';
+        genOpt.textContent = 'General';
+        filterSelect.appendChild(genOpt);
+      }
+      for (var i = 0; i < delegateIds.length; i++) {
+        var did = delegateIds[i];
+        var entry = delegates[did];
+        if (!entry.books || entry.books.length === 0) continue;
+        var opt = document.createElement('option');
+        opt.value = did;
+        opt.textContent = entry.name || did;
+        filterSelect.appendChild(opt);
+      }
+
+      // General section
+      if (general.length > 0) {
+        var genSection = document.createElement('section');
+        genSection.className = 'books-delegate-section';
+        genSection.dataset.delegate = '__general__';
+
+        var genTitle = document.createElement('h2');
+        genTitle.className = 'books-section-title';
+        genTitle.textContent = 'General';
+        genSection.appendChild(genTitle);
+
+        renderBooksInto(general, genSection);
+        contentEl.appendChild(genSection);
+      }
+
+      // Per-delegate sections
+      for (var j = 0; j < delegateIds.length; j++) {
+        var dId = delegateIds[j];
+        var dEntry = delegates[dId];
+        if (!dEntry.books || dEntry.books.length === 0) continue;
+
+        var section = document.createElement('section');
+        section.className = 'books-delegate-section';
+        section.dataset.delegate = dId;
+
+        var title = document.createElement('h2');
+        title.className = 'books-section-title';
+        var link = document.createElement('a');
+        link.href = 'attendee.html#' + dId;
+        link.textContent = dEntry.name || dId;
+        title.appendChild(link);
+        section.appendChild(title);
+
+        renderBooksInto(dEntry.books, section);
+        contentEl.appendChild(section);
+      }
+
+      // Apply hash filter if present
+      var hash = location.hash.replace('#', '').trim();
+      if (hash) {
+        filterSelect.value = hash;
+        applyFilter();
+      }
+    }
+
+    // -----------------------------------------------------------
+    // Filtering (CSS show/hide)
+    // -----------------------------------------------------------
+    function applyFilter() {
+      var delegateVal = filterSelect.value;
+      var audienceVal = audienceSelect.value;
+      var sections = contentEl.querySelectorAll('.books-delegate-section');
+      for (var i = 0; i < sections.length; i++) {
+        var s = sections[i];
+        // Delegate filter
+        if (delegateVal && s.dataset.delegate !== delegateVal) {
+          s.classList.add('hidden');
+          continue;
+        }
+        // Audience filter: show/hide individual cards
+        var cards = s.querySelectorAll('.book-card');
+        var visibleCount = 0;
+        for (var j = 0; j < cards.length; j++) {
+          var card = cards[j];
+          if (!audienceVal) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            var cardAudiences = (card.dataset.audience || '').split(' ');
+            if (cardAudiences.indexOf(audienceVal) !== -1) {
+              card.classList.remove('hidden');
+              visibleCount++;
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        }
+        // Hide section if audience filter left no visible cards
+        if (audienceVal && visibleCount === 0) {
+          s.classList.add('hidden');
+        } else {
+          s.classList.remove('hidden');
+        }
+      }
+    }
+
+    filterSelect.addEventListener('change', applyFilter);
+    audienceSelect.addEventListener('change', applyFilter);
+    resetBtn.addEventListener('click', function () {
+      filterSelect.value = '';
+      audienceSelect.value = '';
+      applyFilter();
+    });
+
+    // -----------------------------------------------------------
+    // Init
+    // -----------------------------------------------------------
+    loadBooksData()
+      .then(renderPage)
+      .catch(function (err) {
+        contentEl.innerHTML =
+          '<p class="books-empty">Could not load books data. ' + err.message + '</p>';
+      });
+  })();
+  </script>
+</body>
+</html>

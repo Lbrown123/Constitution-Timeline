@@ -1,0 +1,19 @@
+{
+  "id": "pierce_butler",
+  "name": "Pierce Butler",
+  "state": "South Carolina",
+  "stateSize": "big",
+  "occupationRaw": "Soldier, Planter",
+  "occupationCategory": "Planter/Farmer",
+  "birthYear": 1744,
+  "ageAtConvention": 43,
+  "ageDecade": "40s",
+  "signedConstitution": true,
+  "wikiTitle": "Pierce Butler (American politician)",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Pierce_Butler_%28American_politician%29",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Sen._Pierce_Butler.png",
+  "photoCard": "images/attendees/pierce_butler.webp",
+  "photoProfile": "images/attendees/pierce_butler_lg.webp",
+  "introHtml": "<p><b>Pierce Butler</b> (July 11, 1744 – February 15, 1822) was an Anglo-Irish American politician who was one of the Founding Fathers of the United States. Born in the Kingdom of Ireland, Butler emigrated to the British North American colonies, where he fought in the American Revolutionary War. After the war, he served as a state legislator and was a member of the Congress of the Confederation. In 1787, he served as a delegate to the 1787 Constitutional Convention, where Butler signed the Constitution of the United States; he was also a member of the United States Senate.\n</p><p>As one of the largest slaveholders in the United States, he frequently defended American slavery for both political and personal motives, even though he had private misgivings about the institution and particularly about the Atlantic slave trade. He introduced the Fugitive Slave Clause into a draft of the Constitution, which gave a federal guarantee to the property rights of slaveholders. Butler also supported counting the entire slave population in state totals for Congressional apportionment. The Constitution's Three-fifths Compromise counted only three-fifths of the enslaved population in state totals but still led to white voters in Southern United States having disproportionate power in the United States Congress.\n</p>",
+  "conventionHtml": ""
+}
