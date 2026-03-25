@@ -4,7 +4,7 @@
   "state": "Maryland",
   "stateSize": "small",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Doctor",
   "birthYear": 1753,
   "ageAtConvention": 34,
   "ageDecade": "30s",
@@ -14,6 +14,6 @@
   "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/JMcHenry.jpg/500px-JMcHenry.jpg",
   "photoCard": "images/attendees/james_mchenry.webp",
   "photoProfile": "images/attendees/james_mchenry_lg.webp",
-  "introHtml": "<p><b>James McHenry</b> (November 16, 1753 – May 3, 1816) was an Scots-Irish American military surgeon, statesman, and a Founding Father of the United States. McHenry was a signer of the United States Constitution from Maryland, initiated the recommendation for Congress to form the Navy, and was the eponym of Fort McHenry.  He represented Maryland in the Continental Congress. He was a delegate to the Maryland State Convention of 1788, to vote whether Maryland should ratify the proposed Constitution of the United States. He served as United States Secretary of War from 1796 to 1800, bridging the administrations of George Washington and John Adams. At the time of his death, McHenry owned 10 slaves, most of whom either worked as household servants or maintained his estate.\n</p>",
+  "introHtml": "<p><b>James McHenry</b> (November 16, 1753 \u2013 May 3, 1816) was an Scots-Irish American military surgeon, statesman, and a Founding Father of the United States. McHenry was a signer of the United States Constitution from Maryland, initiated the recommendation for Congress to form the Navy, and was the eponym of Fort McHenry.  He represented Maryland in the Continental Congress. He was a delegate to the Maryland State Convention of 1788, to vote whether Maryland should ratify the proposed Constitution of the United States. He served as United States Secretary of War from 1796 to 1800, bridging the administrations of George Washington and John Adams. At the time of his death, McHenry owned 10 slaves, most of whom either worked as household servants or maintained his estate.\n</p>",
   "conventionHtml": ""
 }

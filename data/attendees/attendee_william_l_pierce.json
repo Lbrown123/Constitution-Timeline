@@ -4,7 +4,7 @@
   "state": "Georgia",
   "stateSize": "big",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Merchant",
   "birthYear": null,
   "ageAtConvention": null,
   "ageDecade": null,
@@ -14,6 +14,6 @@
   "imageUrl": "",
   "photoCard": "",
   "photoProfile": "",
-  "introHtml": "<p><b>William Leigh Pierce</b> (1753 – December 10, 1789) was a Founding Father of the United States, military officer during the Revolutionary War, member of the Continental Congress, merchant, and planter and slave owner. As a delegate representing Georgia at the Constitutional Convention of 1787, he left before he could sign the U.S. Constitution.\n</p>",
+  "introHtml": "<p><b>William Leigh Pierce</b> (1753 \u2013 December 10, 1789) was a Founding Father of the United States, military officer during the Revolutionary War, member of the Continental Congress, merchant, and planter and slave owner. As a delegate representing Georgia at the Constitutional Convention of 1787, he left before he could sign the U.S. Constitution.\n</p>",
   "conventionHtml": ""
 }

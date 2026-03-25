@@ -4,7 +4,7 @@
   "state": "New York",
   "stateSize": "big",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Lawyer",
   "birthYear": 1738,
   "ageAtConvention": 49,
   "ageDecade": "40s",
@@ -14,6 +14,6 @@
   "imageUrl": "",
   "photoCard": "",
   "photoProfile": "",
-  "introHtml": "<p><b>Robert Yates</b> (January 27, 1738 – September 9, 1801) was an American politician, attorney, jurist, and surveyor. As a delegate representing New York at the Constitutional Convention in 1787, Yates is considered a Founding Father of the United States. Best known as a leader of the Anti-Federalist movement, he was the presumed author of political essays published in 1787-1788 under the pseudonyms \"Brutus\" and \"Sydney\". The essays opposed the Constitution based on the scope of the national government and the diminished sovereignty of the states. Yates also served as chief justice of the New York Supreme Court from 1790 to 1798.\n</p>",
+  "introHtml": "<p><b>Robert Yates</b> (January 27, 1738 \u2013 September 9, 1801) was an American politician, attorney, jurist, and surveyor. As a delegate representing New York at the Constitutional Convention in 1787, Yates is considered a Founding Father of the United States. Best known as a leader of the Anti-Federalist movement, he was the presumed author of political essays published in 1787-1788 under the pseudonyms \"Brutus\" and \"Sydney\". The essays opposed the Constitution based on the scope of the national government and the diminished sovereignty of the states. Yates also served as chief justice of the New York Supreme Court from 1790 to 1798.\n</p>",
   "conventionHtml": ""
 }

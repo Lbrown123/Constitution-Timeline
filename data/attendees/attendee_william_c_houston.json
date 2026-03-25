@@ -4,7 +4,7 @@
   "state": "New Jersey",
   "stateSize": "small",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Lawyer",
   "birthYear": null,
   "ageAtConvention": null,
   "ageDecade": null,
@@ -14,6 +14,6 @@
   "imageUrl": "",
   "photoCard": "",
   "photoProfile": "",
-  "introHtml": "<p><b>William Churchill Houston</b> (<abbr title=\"circa\">c.</abbr> 1746 – August 12, 1788), a Founding Father of the United States, was a teacher, lawyer and statesman. Houston served as a delegate representing New Jersey in both the Continental Congress and Constitutional Convention. He was elected to the American Philosophical Society in 1780.\n</p>",
+  "introHtml": "<p><b>William Churchill Houston</b> (<abbr title=\"circa\">c.</abbr> 1746 \u2013 August 12, 1788), a Founding Father of the United States, was a teacher, lawyer and statesman. Houston served as a delegate representing New Jersey in both the Continental Congress and Constitutional Convention. He was elected to the American Philosophical Society in 1780.\n</p>",
   "conventionHtml": ""
 }

@@ -30,7 +30,7 @@ Convention Website/
 │   └── books.js            # Shared book-card renderer
 ├── data/
 │   ├── manifest.json       # Index of all debate entries
-│   ├── debates-bundle.js   # Auto-generated bundle (do not edit)
+│   ├── data-bundle.js   # Auto-generated bundle (do not edit)
 │   ├── debates/            # One JSON file per debate day
 │   ├── attendees/          # Delegate card + full profile JSONs
 │   └── books.json          # Manually maintained book recommendations
@@ -42,7 +42,7 @@ Convention Website/
     ├── fetch_debates.js    # Node.js equivalent of above
     ├── fetch_attendees.py  # Scrapes Wikipedia for delegate data + photos
     ├── link_delegates.py   # Wraps delegate names in debate HTML with links
-    └── build_bundle.py     # Bundles all JSON into debates-bundle.js
+    └── build_bundle.py     # Bundles all JSON into data-bundle.js
 ```
 
 ## Setup & Local Development
@@ -87,7 +87,7 @@ Flags: `--dry-run` (preview changes without writing), `--stats` (print per-deleg
 python3 scripts/build_bundle.py
 ```
 
-Bundles all JSON files into `data/debates-bundle.js` as JS globals. Required for the site to work when opened directly from the filesystem (`file://`). **Run this after any change to JSON data files.**
+Bundles all JSON files into `data/data-bundle.js` as JS globals. Required for the site to work when opened directly from the filesystem (`file://`). **Run this after any change to JSON data files.**
 
 ### 5. Open the site
 

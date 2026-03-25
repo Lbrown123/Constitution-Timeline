@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body class="attendee-profile-page">
 
@@ -79,7 +79,7 @@
     </div>
   </footer>
 
-  <script src="data/debates-bundle.js"></script>
+  <script src="data/data-bundle.js?v=d283fa65"></script>
   <script src="js/main.js"></script>
   <script src="js/books.js"></script>
   <script>
@@ -138,7 +138,7 @@
     // Render
     // -------------------------------------------------------
     function renderHeader(data) {
-      const stateSizeLabel = data.stateSize === 'big' ? 'Big State' : 'Little State';
+      const stateSizeLabel = data.stateSize === 'big' ? 'Big State' : 'Small State';
       const stateSizeBadge = data.stateSize === 'big'
         ? 'profile-badge--big-state' : 'profile-badge--small-state';
       const signedLabel    = data.signedConstitution ? 'Signed the Constitution' : 'Did not sign';

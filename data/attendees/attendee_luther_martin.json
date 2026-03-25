@@ -4,7 +4,7 @@
   "state": "Maryland",
   "stateSize": "small",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Lawyer",
   "birthYear": 1748,
   "ageAtConvention": 39,
   "ageDecade": "30s",
@@ -14,6 +14,6 @@
   "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/LutherMartinBig_%28cropped%29.jpg/500px-LutherMartinBig_%28cropped%29.jpg",
   "photoCard": "images/attendees/luther_martin.webp",
   "photoProfile": "images/attendees/luther_martin_lg.webp",
-  "introHtml": "<p><b>Luther Martin</b>  (February 20, 1748 – July 10, 1826) was a Founding Father of the United States, framer of the U.S. Constitution, politician, lawyer, and slave owner. Martin was a delegate from Maryland to the Constitutional Convention in 1787, but did not sign the Constitution, having left the convention early because he felt the document as proposed violated states' rights.  In the months following the convention, he was a leading Anti-Federalist, along with Patrick Henry and George Mason, whose collective efforts led to the passage of the Bill of Rights. \n</p>",
+  "introHtml": "<p><b>Luther Martin</b>  (February 20, 1748 \u2013 July 10, 1826) was a Founding Father of the United States, framer of the U.S. Constitution, politician, lawyer, and slave owner. Martin was a delegate from Maryland to the Constitutional Convention in 1787, but did not sign the Constitution, having left the convention early because he felt the document as proposed violated states' rights.  In the months following the convention, he was a leading Anti-Federalist, along with Patrick Henry and George Mason, whose collective efforts led to the passage of the Bill of Rights. \n</p>",
   "conventionHtml": ""
 }

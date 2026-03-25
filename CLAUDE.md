@@ -1,11 +1,11 @@
 # CLAUDE.md — 1787 Constitutional Convention Website
 
 ## Overview
-Static site presenting James Madison's daily Convention notes + biographical profiles of all 55 delegates. Served via GitHub Pages. All content is stored as JSON; `data/debates-bundle.js` bundles it for `file://` use.
+Static site presenting James Madison's daily Convention notes + biographical profiles of all 55 delegates. Served via GitHub Pages. All content is stored as JSON; `data/data-bundle.js` bundles it for `file://` use.
 
 ## Data Loading Architecture
 Every page uses a two-path strategy:
-1. **Bundle (`file://`)** — reads JS globals injected by `data/debates-bundle.js`
+1. **Bundle (`file://`)** — reads JS globals injected by `data/data-bundle.js`
 2. **HTTP** — fetches individual JSON files via `fetch()`
 
 | Page | Bundle globals | HTTP fallback |
@@ -22,7 +22,7 @@ Every page uses a two-path strategy:
 # Debates
 fetch_debates.py  →  data/debates/debates_*.json + data/manifest.json
 link_delegates.py →  rewrites contentHtml to wrap delegate names in <a class="delegate-link"> tags
-build_bundle.py   →  data/debates-bundle.js  (sets __DEBATES_MANIFEST__ + __DEBATES_DATA__)
+build_bundle.py   →  data/data-bundle.js  (sets __DEBATES_MANIFEST__ + __DEBATES_DATA__)
 
 # Attendees
 fetch_attendees.py  →  data/attendees/*.json + images/attendees/*.webp
@@ -49,11 +49,11 @@ data/books.json  →  build_bundle.py  →  __BOOKS_DATA__ in bundle
 | `data/attendees/attendees.json` | Card-level metadata for all 55 delegates |
 | `data/attendees/attendee_*.json` | Full delegate profile (bio HTML + convention HTML) |
 | `data/books.json` | **Manually maintained** book recommendations |
-| `data/debates-bundle.js` | **Auto-generated** — never edit manually |
+| `data/data-bundle.js` | **Auto-generated** — never edit manually |
 | `scripts/fetch_debates.py` | Scrapes Yale Avalon for debate data |
 | `scripts/fetch_attendees.py` | Scrapes Wikipedia for delegate bios + photos |
 | `scripts/link_delegates.py` | Wraps delegate name mentions in debate HTML with `<a>` links |
-| `scripts/build_bundle.py` | Bundles all JSON into `debates-bundle.js` |
+| `scripts/build_bundle.py` | Bundles all JSON into `data-bundle.js` |
 
 ## JSON Schemas
 
@@ -66,7 +66,7 @@ data/books.json  →  build_bundle.py  →  __BOOKS_DATA__ in bundle
 **`data/books.json`**: `{ "general": [...], "delegates": { "id": { "name": "...", "books": [...] } } }`. Book entries: `title`, `author`, `cover` (optional path), `description` (HTML ok), `link`.
 
 ## Rules & Gotchas
-- `debates-bundle.js` is auto-generated — never edit it manually
+- `data-bundle.js` is auto-generated — never edit it manually
 - `data/books.json` is manually maintained — never auto-generate it
 - Run `link_delegates.py` after re-scraping debates; always follow with `build_bundle.py`
 - Delegate `id` must be consistent across `attendees.json`, `attendee_{id}.json`, image filenames, and `books.json` keys

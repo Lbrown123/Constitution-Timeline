@@ -4,7 +4,7 @@
   "state": "Delaware",
   "stateSize": "small",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Lawyer",
   "birthYear": 1747,
   "ageAtConvention": 40,
   "ageDecade": "40s",
@@ -14,6 +14,6 @@
   "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Portrait_of_Gunning_Bedford_Jr.jpg/500px-Portrait_of_Gunning_Bedford_Jr.jpg",
   "photoCard": "images/attendees/gunning_bedford_jr.webp",
   "photoProfile": "images/attendees/gunning_bedford_jr_lg.webp",
-  "introHtml": "<p><b>Gunning Bedford Jr.</b> (1747 – March 30, 1812) was an American Founding Father, delegate to the Congress of the Confederation (Continental Congress), Attorney General of Delaware, a delegate to the Constitutional Convention in 1787 which drafted the United States Constitution, a signer of the United States Constitution, and a United States district judge of the United States District Court for the District of Delaware.\n</p>",
+  "introHtml": "<p><b>Gunning Bedford Jr.</b> (1747 \u2013 March 30, 1812) was an American Founding Father, delegate to the Congress of the Confederation (Continental Congress), Attorney General of Delaware, a delegate to the Constitutional Convention in 1787 which drafted the United States Constitution, a signer of the United States Constitution, and a United States district judge of the United States District Court for the District of Delaware.\n</p>",
   "conventionHtml": ""
 }

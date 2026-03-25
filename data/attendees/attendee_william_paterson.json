@@ -4,7 +4,7 @@
   "state": "New Jersey",
   "stateSize": "small",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Lawyer",
   "birthYear": 1745,
   "ageAtConvention": 42,
   "ageDecade": "40s",
@@ -14,6 +14,6 @@
   "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/William_Paterson_copy.jpg",
   "photoCard": "images/attendees/william_paterson.webp",
   "photoProfile": "images/attendees/william_paterson_lg.webp",
-  "introHtml": "<p><b>William Paterson</b> (December 24, 1745 – September 9, 1806) was an American statesman, lawyer, jurist, and signer of the United States Constitution. He was an associate justice of the United States Supreme Court, the second governor of New Jersey, and a Founding Father of the United States.\n</p><p>Born in County Antrim, Ireland, Paterson moved to the North American British colonies at a young age. After graduating from the College of New Jersey (now Princeton University) and studying law under Richard Stockton, he was admitted to the bar in 1768. He helped write the 1776 Constitution of New Jersey and served as the New Jersey Attorney General from 1776 to 1783. He represented New Jersey at the 1787 Constitutional Convention, where he proposed the New Jersey Plan, which would have provided for equal representation among the states in Congress.\n</p><p>After the ratification of the Constitution, Paterson served in the United States Senate from 1789 to 1790, helping to draft the Judiciary Act of 1789. He resigned from the Senate to take office as governor of New Jersey. In 1793, he accepted appointment by President George Washington to serve as an associate justice of the Supreme Court. He served on the court until his death in 1806.\n</p>",
+  "introHtml": "<p><b>William Paterson</b> (December 24, 1745 \u2013 September 9, 1806) was an American statesman, lawyer, jurist, and signer of the United States Constitution. He was an associate justice of the United States Supreme Court, the second governor of New Jersey, and a Founding Father of the United States.\n</p><p>Born in County Antrim, Ireland, Paterson moved to the North American British colonies at a young age. After graduating from the College of New Jersey (now Princeton University) and studying law under Richard Stockton, he was admitted to the bar in 1768. He helped write the 1776 Constitution of New Jersey and served as the New Jersey Attorney General from 1776 to 1783. He represented New Jersey at the 1787 Constitutional Convention, where he proposed the New Jersey Plan, which would have provided for equal representation among the states in Congress.\n</p><p>After the ratification of the Constitution, Paterson served in the United States Senate from 1789 to 1790, helping to draft the Judiciary Act of 1789. He resigned from the Senate to take office as governor of New Jersey. In 1793, he accepted appointment by President George Washington to serve as an associate justice of the Supreme Court. He served on the court until his death in 1806.\n</p>",
   "conventionHtml": ""
 }

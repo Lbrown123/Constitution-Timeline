@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body class="attendees-page">
 
@@ -78,6 +78,8 @@
           <option value="Planter/Farmer">Planter / Farmer</option>
           <option value="Merchant">Merchant</option>
           <option value="Doctor">Doctor</option>
+          <option value="Printer">Printer</option>
+          <option value="Minister">Minister</option>
           <option value="Statesman">Statesman / Other</option>
         </select>
       </div>
@@ -125,7 +127,7 @@
     </div>
   </footer>
 
-  <script src="data/debates-bundle.js"></script>
+  <script src="data/data-bundle.js?v=d283fa65"></script>
   <script src="js/main.js"></script>
   <script>
   (function () {
@@ -182,7 +184,7 @@
       card.dataset.statesize  = a.stateSize || '';
 
       const profileUrl = `attendee.html#${a.id}`;
-      const stateSizeLabel = a.stateSize === 'big' ? 'big state' : 'little state';
+      const stateSizeLabel = a.stateSize === 'big' ? 'big state' : 'small state';
       const signedLabel    = a.signedConstitution ? 'Signed' : 'Did not sign';
       const badgeClass     = a.signedConstitution
         ? 'attendee-card__badge--signed'
@@ -224,7 +226,7 @@
       for (const card of cards) {
         const match =
           (!state     || card.dataset.state === state) &&
-          (!occ       || card.dataset.occupation === occ) &&
+          (!occ       || card.dataset.occupation.split(', ').includes(occ)) &&
           (!age       || card.dataset.age === age) &&
           (!statesize || card.dataset.statesize === statesize) &&
           (!signed    || card.dataset.signed === signed);

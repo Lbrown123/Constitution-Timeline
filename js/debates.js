@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       manifest = await fetchJSON('data/manifest.json');
     }
   } catch (err) {
-    showFatalError('Could not load debate index. Make sure you have run scripts/build_bundle.py and that data/debates-bundle.js exists.', err);
+    showFatalError('Could not load debate index. Make sure you have run scripts/build_bundle.py and that data/data-bundle.js exists.', err);
     return;
   }
 

@@ -18,9 +18,11 @@
   --color-ink-mid:         #2c2416;
   --color-ink-light:       #4a3f2f;
 
-  /* Accent — federal blue & gold */
+  /* Accent — federal blue, green & gold */
   --color-federal-blue:    #2b4878;
   --color-federal-blue-lt: #3d5f9a;
+  --color-assembly-green:    #4a7a5a;
+  --color-assembly-green-lt: #5a9068;
   --color-federal-gold:    #c8a84b;
   --color-federal-gold-lt: #e8c86a;
   --color-federal-gold-dim: #8a7030;
@@ -281,7 +283,7 @@ button {
   font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
   font-style: italic;
   font-weight: 400;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-6);
 }
 
@@ -289,7 +291,7 @@ button {
   font-family: var(--font-body);
   font-size: var(--text-lg);
   line-height: var(--leading-prose);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   max-width: 580px;
   margin: 0 auto var(--space-10);
 }
@@ -308,20 +310,20 @@ button {
   font-family: var(--font-ui);
   font-size: var(--text-base);
   font-weight: 600;
-  color: var(--color-parchment);
-  background: var(--color-federal-blue);
+  color: white;
+  background: var(--color-assembly-green);
   padding: var(--space-4) var(--space-8);
   border-radius: 4px;
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: background var(--transition-fast), transform var(--transition-fast);
-  box-shadow: 0 2px 8px rgba(43,72,120,0.3);
+  box-shadow: 0 2px 8px rgba(74,122,90,0.35);
 }
 .btn-primary:hover {
-  background: var(--color-federal-blue-lt);
+  background: var(--color-assembly-green-lt);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(43,72,120,0.4);
+  box-shadow: 0 4px 12px rgba(74,122,90,0.45);
 }
 
 .btn-secondary {
@@ -356,7 +358,7 @@ button {
   margin-top: var(--space-10);
   font-family: var(--font-ui);
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
 /* ============================================================
@@ -418,7 +420,7 @@ button {
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-prose);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-4);
 }
 
@@ -435,7 +437,7 @@ button {
   align-items: flex-start;
   font-family: var(--font-body);
   font-size: var(--text-base);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   line-height: var(--leading-normal);
 }
 
@@ -486,7 +488,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-federal-gold-dim);
+  color: var(--color-federal-blue);
 }
 
 .moment-card__title {
@@ -501,7 +503,7 @@ button {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   flex: 1;
 }
 
@@ -568,7 +570,6 @@ button {
 
 .site-footer__attribution {
   font-size: var(--text-xs);
-  opacity: 0.7;
   margin-top: var(--space-6);
   padding-top: var(--space-6);
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -1370,7 +1371,7 @@ button {
 }
 
 .attendee-card__state-size {
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   font-style: italic;
 }
 

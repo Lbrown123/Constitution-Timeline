@@ -4,7 +4,7 @@
   "state": "North Carolina",
   "stateSize": "big",
   "occupationRaw": "",
-  "occupationCategory": "Statesman",
+  "occupationCategory": "Statesman, Merchant, Lawyer",
   "birthYear": 1740,
   "ageAtConvention": 47,
   "ageDecade": "40s",
@@ -14,6 +14,6 @@
   "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/NCG-AlexanderMartin.jpg",
   "photoCard": "images/attendees/alexander_martin.webp",
   "photoProfile": "images/attendees/alexander_martin_lg.webp",
-  "introHtml": "<p><b>Alexander Martin</b> (October 17, 1740 – November 2, 1807) was a Founding Father of the United States, framer of the U.S. Constitution, fourth and seventh Governor of North Carolina, and an infantry officer in the American Revolutionary War. In private life, Martin was a lawyer, merchant, planter, and slave owner.\n</p>",
+  "introHtml": "<p><b>Alexander Martin</b> (October 17, 1740\u00a0\u2013 November 2, 1807) was a Founding Father of the United States, framer of the U.S. Constitution, fourth and seventh Governor of North Carolina, and an infantry officer in the American Revolutionary War. In private life, Martin was a lawyer, merchant, planter, and slave owner.\n</p>",
   "conventionHtml": ""
 }
