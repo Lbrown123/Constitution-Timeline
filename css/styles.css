@@ -1599,7 +1599,7 @@ button {
 }
 
 .profile-section {
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-6);
 }
 
 .profile-section-title {
@@ -1643,7 +1643,8 @@ button {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   text-decoration: none;
-  margin-top: var(--space-6);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-8);
   padding: var(--space-2) var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: 4px;
@@ -1962,6 +1963,10 @@ button {
 }
 
 .books-delegate-section.hidden {
+  display: none;
+}
+
+.book-card.hidden {
   display: none;
 }
 

@@ -80,6 +80,13 @@
     title.textContent = book.title || '';
     info.appendChild(title);
 
+    if (book.author) {
+      var author = document.createElement('p');
+      author.className = 'book-card__author';
+      author.textContent = book.author;
+      info.appendChild(author);
+    }
+
     if (book.audience && book.audience.length > 0) {
       var audienceDiv = document.createElement('div');
       audienceDiv.className = 'book-card__audiences';
@@ -90,13 +97,6 @@
         audienceDiv.appendChild(badge);
       }
       info.appendChild(audienceDiv);
-    }
-
-    if (book.author) {
-      var author = document.createElement('p');
-      author.className = 'book-card__author';
-      author.textContent = book.author;
-      info.appendChild(author);
     }
 
     if (book.description) {

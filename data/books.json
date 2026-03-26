@@ -23,7 +23,75 @@
         "kids"
       ],
       "category": "reprinting"
+    },
+     {
+      "title": "The Second Founding: How the Civil War and Reconstruction Remade the Constitution",
+      "author": "Eric Foner",
+      "cover": "images/books/second-founding.jpg",
+      "description": "Part of what Madison's notes on the Constitutional Convention reveal is that the seeds of disagreement around slavery were laid well before the Civil War, and indeed were present during the very founding of the nation. This authoritative history by the preeminent scholar of the Civil War era traces the arc of the three foundational Reconstruction amendments from their origins in antebellum activism and adoption amidst intense postwar politics to their virtual nullification by narrow Supreme Court decisions and Jim Crow state laws.",
+      "link": "https://bookshop.org/a/11616/9780393358520",
+      "audience": [
+        "adults"
+      ],
+      "category": "general-history"
+    },
+       {
+      "title": "The Whiskey Rebellion",
+      "author": "William Hogeland",
+      "cover": "images/books/whiskey.jpg",
+      "description": "A gripping and sensational tale of violence, alcohol, and taxes, The Whiskey Rebellion uncovers the radical eighteenth-century people’s movement, long ignored by historians, that contributed decisively to the call to hold the Constitutional Convention itself.",
+      "link": "https://bookshop.org/a/11616/9780743254915",
+      "audience": [
+        "adults"
+      ],
+      "category": "general-history"
+    },
+        {
+      "title": "What Does the Constitution Actually Say?",
+      "author": "Ben Sheehan",
+      "cover": "images/books/what-does-say.jpg",
+      "description": "Written by political savant Ben Sheehan, and vetted for accuracy by experts in the field of constitutional law, What Does the Constitution Actually Say? is an entertaining and accessible primer on what the Constitution of the United States actually lays out. With clear notes and graphics on everything from presidential powers to Supreme Court nominations to hidden loopholes, Sheehan walks us through the entire Constitution--with a bonus section on the Declaration of Independence. Besides putting the Constitution in modern-day English so that it can be understood, What Does the Constitution Actually Say? gives you everything you need to be a well-informed American citizen and an effective voter in the November elections and beyond.",
+      "link": "https://bookshop.org/a/11616/9780762489053",
+      "audience": [
+        "teens"
+      ],
+      "category": "general-history"
+    },
+       {
+      "title": "We the People?",
+      "author": "Jill Lepore",
+      "cover": "images/books/we-the-people.jpg",
+      "description": "Published on the occasion of the 250th anniversary of the nation's founding--the anniversary, too, of the first state constitutions--We the People offers a wholly new history of the Constitution. Lepore recounts centuries of attempts, mostly by ordinary Americans, to realize the promise of the Constitution. Lepore argues that the framers never intended for the Constitution to be preserved, like a butterfly, under glass, Lepore argues, but expected that future generations would be forever tinkering with it, hoping to mend America by amending its Constitution through an orderly deliberative and democratic process.",
+      "link": "https://bookshop.org/a/11616/9781631496080",
+      "audience": [
+        "adults"
+      ],
+      "category": "general-history"
+    },
+      {
+      "title": "An Economic Interpretation of the Constitution of the United States",
+      "author": "Charles Beard",
+      "cover": "images/books/econ-interp.jpg",
+      "description": "This book challenges the founding mythos by arguing that economic self-interest, not pure principle, shaped the Constitution. This provocative classic reshaped American historiography and sparked enduring debate over the motives behind the nation's founding document.",
+      "link": "https://bookshop.org/a/11616/9798349427688",
+      "audience": [
+        "adults"
+      ],
+      "category": "general-history"
+    },
+        {
+      "title": "The Declaration of Independence and the Constitution of the United States",
+      "author": "Jon Meacham",
+      "cover": "images/books/cons-dec.jpg",
+      "description": "This slim, 96-page book offers a copty of both the Declaration of Independence and the Constitution, plus an introduction by Pulitzer Prize winner Jon Meacham.",
+      "link": "https://bookshop.org/a/11616/9798217154524",
+      "audience": [
+        "adults",
+        "teens"
+      ],
+      "category": "reprinting"
     }
+   
   ],
   "delegates": {
     "george_washington": {
@@ -40,8 +108,73 @@
             "teens"
           ],
           "category": "biography"
+        },
+        {
+          "title": "Who Was George Washington?",
+          "author": "Roberta Edwards",
+          "cover": "images/books/who-was-wash.jpg",
+          "description": "An accessible, 100 page book for elementary age kids. In 1789, George Washington became the first president of the United States. He has been called the father of our country for leading America through its early years. Washington also served in two major wars during his lifetime: the French and Indian War and the American Revolution. With over 100 illustrations, Washington's fascinating story comes to life - revealing the real man, not just the face on the dollar bill!",
+          "link": "https://bookshop.org/a/11616/9780448448923",
+          "audience": [
+            "kids"
+          ],
+          "category": "biography"
+        }, 
+         {
+          "title": "George Washington",
+          "author": "Caroline Gilpin",
+          "cover": "images/books/nat-geo-kids.jpg",
+          "description": "Learn all about George Washington, one of the most important figures in American history, in this colorful, inviting, and entertaining biography. This carefully leveled reader is written in an easy-to-grasp style to encourage the historians of tomorrow!",
+          "link": "https://bookshop.org/a/11616/9781426314681",
+          "audience": [
+            "kids"
+          ],
+          "category": "biography"
+        }
+      ]
+    },
+  "benjamin_franklin": {
+      "name": "Benjamin Franklin",
+      "books": [
+          {
+          "title": "Benjamin Franklin",
+          "author": "Walter Isaacson",
+          "cover": "images/books/franklin-issacson.jpg",
+          "description": "In this authoritative and engrossing full-scale biography, Walter Isaacson shows how the most fascinating of America's founders helped define our national character. Benjamin Franklin is the founding father who winks at us, the one who seems made of flesh rather than marble. In a sweeping narrative that follows Franklin’s life from Boston to Philadelphia to London and Paris and back, Walter Isaacson chronicles the adventures of the runaway apprentice who became, over the course of his eighty-four-year life, America’s best writer, inventor, media baron, scientist, diplomat, and business strategist, as well as one of its most practical and ingenious political leaders. He explores the wit behind Poor Richard’s Almanac and the wisdom behind the Declaration of Independence, the new nation’s alliance with France, the treaty that ended the Revolution, and the compromises that created a near-perfect Constitution. In this colorful and intimate narrative, Isaacson provides the full sweep of Franklin’s amazing life, showing how he helped to forge the American national identity and why he has a particular resonance in the twenty-first century.",
+          "link": "https://bookshop.org/a/11616/9780743258074",
+          "audience": [
+            "adults"
+          ],
+          "category": "biography"
+        },
+        {
+          "title": "Who Was Ben Franklin",
+          "author": "Dennis Brindell Fradin",
+          "cover": "images/books/who-was-franklin.jpg",
+          "description": "Ben Franklin was the scientist who, with the help of a kite, discovered that lightning is electricity. He was also a statesman, an inventor, a printer, and an author-a man of such amazingly varied talents that some people claimed he had magical powers! Full of all the details kids will want to know, the true story of Benjamin Franklin is by turns sad and funny, but always honest and awe-inspiring.",
+          "link": "https://bookshop.org/a/11616/9780448424958",
+          "audience": [
+            "kids"
+          ],
+          "category": "biography"
+        },
+         {
+          "title": "Ben Franklin's Book of Virtues",
+          "author": "Benjamin Franklin",
+          "cover": "images/books/virtues.jpg",
+          "description": "This elegant keepsake volume (complete with gold foil embelishments) presents Ben Franklin's list of 13 essential virtues, including resolution, industry, and justice, and a plan for putting them into practice. Ben Franklin wrote this list of virtues as a template for self-improvement and success in life. He claimed to have followed the steps laid out in the book and reported that 'I was surprised to find myself so much fuller of faults than I had imagined; but I had the satisfaction of seeing them diminish.'",
+          "link": "https://bookshop.org/a/11616/9781441346070",
+          "audience": [
+            "teens",
+            "adults"
+          ],
+          "category": "reprinting"
         }
       ]
     }
   }
+
+
+
+
 }
