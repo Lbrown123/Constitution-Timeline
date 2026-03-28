@@ -60,7 +60,8 @@
       "Bash(mv data/context.json data/debates_*.json data/debates/)",
       "Bash(mv data/attendees.json data/attendee_*.json data/attendees/)",
       "Bash(git checkout:*)",
-      "Bash(python3 -c \"import json; json.load\\(open\\(''/Users/logandrake/Downloads/Convention Website/data/books.json''\\)\\); print\\(''Valid JSON''\\)\")"
+      "Bash(python3 -c \"import json; json.load\\(open\\(''/Users/logandrake/Downloads/Convention Website/data/books.json''\\)\\); print\\(''Valid JSON''\\)\")",
+      "Bash(python3 scripts/fetch_king_notes.py)"
     ]
   }
 }
