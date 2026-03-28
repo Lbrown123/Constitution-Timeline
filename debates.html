@@ -86,9 +86,20 @@
             </button>
           </nav>
 
-          <!-- Madison's Notes -->
+          <!-- Notes source toggle (shown only when King's notes also exist) -->
+          <div class="notes-toggle" id="notes-toggle" style="display:none">
+            <span class="notes-toggle__label">View notes by:</span>
+            <div class="notes-toggle__pills" role="group" aria-label="Notes source">
+              <button class="notes-toggle__pill notes-toggle__pill--active"
+                      id="toggle-madison" aria-pressed="true">Madison</button>
+              <button class="notes-toggle__pill"
+                      id="toggle-king" aria-pressed="false">King</button>
+            </div>
+          </div>
+
+          <!-- Madison's / King's Notes -->
           <section class="day-notes-section">
-            <h2 class="day-section-title">Madison's Notes</h2>
+            <h2 class="day-section-title" id="notes-section-title">Madison's Notes</h2>
             <article class="debate-body" id="debate-body" aria-live="polite"></article>
           </section>
 
@@ -123,7 +134,7 @@
     <button class="timeline-scroll-btn timeline-scroll-btn--right" id="timeline-scroll-right" aria-label="Scroll timeline right">&#8250;</button>
   </div>
 
-  <script src="data/data-bundle.js?v=c67674ea"></script>
+  <script src="data/data-bundle.js?v=b07101c3"></script>
   <script src="js/main.js"></script>
   <script src="js/debates.js"></script>
   <script src="js/delegate-popup.js"></script>

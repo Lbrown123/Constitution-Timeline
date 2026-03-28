@@ -157,7 +157,7 @@ button {
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--color-federal-gold);
+  color: var(--color-text-on-dark);
   text-decoration: none;
   letter-spacing: -0.01em;
   flex-shrink: 0;
@@ -581,8 +581,7 @@ button {
 .debates-body {
   padding-top: var(--nav-height);
   padding-bottom: var(--timeline-height);
-  height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -591,7 +590,6 @@ button {
   display: flex;
   flex: 1;
   min-height: 0;
-  overflow: hidden;
 }
 
 /* Sidebar removed — navigation is via the bottom timeline only */
@@ -601,10 +599,6 @@ button {
    ============================================================ */
 .debates-content {
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border) transparent;
   background: var(--color-parchment);
 }
 
@@ -771,6 +765,13 @@ button {
   text-decoration: underline;
 }
 
+/* Named anchors (e.g. King's notes date headers) — no link styling */
+.debate-body a[name]:not([href]) {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+}
+
 /* Ordered/unordered lists within debate text */
 .debate-body ol,
 .debate-body ul {
@@ -879,6 +880,69 @@ button {
   margin-top: var(--space-6);
   margin-bottom: var(--space-8);
   padding-top: 0;
+}
+
+/* ============================================================
+   14a. Notes Source Toggle
+   ============================================================ */
+.notes-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-parchment-dark);
+  border: 1px solid var(--color-border-light);
+  border-radius: 6px;
+}
+
+.notes-toggle__label {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.notes-toggle__pills {
+  display: flex;
+  border: 1.5px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.notes-toggle__pill {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  line-height: 1;
+}
+
+.notes-toggle__pill + .notes-toggle__pill {
+  border-left: 1.5px solid var(--color-border);
+}
+
+.notes-toggle__pill--active {
+  background: var(--color-federal-blue);
+  color: var(--color-text-on-dark);
+}
+
+.notes-toggle__pill:hover:not(.notes-toggle__pill--active) {
+  background: var(--color-parchment-aged);
+  color: var(--color-text-primary);
+}
+
+.notes-toggle__pill:focus-visible {
+  outline: 2px solid var(--color-federal-blue);
+  outline-offset: -2px;
 }
 
 /* ============================================================

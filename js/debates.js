@@ -5,6 +5,7 @@
 let manifest = null;        // Loaded from data/manifest.json
 let currentDayId = null;    // ID of the currently displayed day
 const dayCache = {};         // In-memory cache: { id: debateData }
+let currentSource = 'madison'; // 'madison' | 'king'
 
 // ============================================================
 // Entry point
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   buildTimeline(manifest.days);
+  initNotesToggle();
   initTimelineScrollButtons();
   initTimelineStickyMonth();
 
@@ -223,9 +225,8 @@ async function loadDay(id) {
   renderDay(data);
   showLoading(false);
 
-  // Scroll content area back to top
-  const contentArea = document.getElementById('debates-content');
-  if (contentArea) contentArea.scrollTop = 0;
+  // Scroll back to top of document
+  window.scrollTo(0, 0);
 
   // Preload adjacent days in the background
   const idx = manifest.days.findIndex(d => d.id === id);
@@ -293,18 +294,19 @@ function renderDay(data) {
     }
   }
 
-  // Debate body and bottom nav (hidden on pages without notes)
-  const notesSection = document.querySelector('.day-notes-section');
-  const bottomNav = document.querySelector('.day-nav:not(.day-nav--top)');
-  const bodyEl = document.getElementById('debate-body');
-  if (data.contentHtml) {
-    if (notesSection) notesSection.style.display = '';
-    if (bottomNav) bottomNav.style.display = '';
-    if (bodyEl) bodyEl.innerHTML = stripLeadingH4(data.contentHtml);
-  } else {
-    if (notesSection) notesSection.style.display = 'none';
-    if (bottomNav) bottomNav.style.display = 'none';
-  }
+  // Default to Madison; fall back to King if Madison's notes are absent
+  currentSource = data.contentHtml ? 'madison' : (data.kingContentHtml ? 'king' : 'madison');
+  const madisonBtn = document.getElementById('toggle-madison');
+  const kingBtn    = document.getElementById('toggle-king');
+  if (madisonBtn) { madisonBtn.classList.toggle('notes-toggle__pill--active', currentSource === 'madison'); madisonBtn.setAttribute('aria-pressed', String(currentSource === 'madison')); }
+  if (kingBtn)    { kingBtn.classList.toggle('notes-toggle__pill--active', currentSource === 'king'); kingBtn.setAttribute('aria-pressed', String(currentSource === 'king')); }
+
+  // Show toggle only when both Madison's and King's notes exist for this day
+  const toggleEl = document.getElementById('notes-toggle');
+  if (toggleEl) toggleEl.style.display = (data.contentHtml && meta && meta.hasKingNotes) ? '' : 'none';
+
+  // Render the notes body (and show/hide section + bottom nav)
+  renderNotesBody(data);
 
   // Prev/Next navigation
   updateDayNav(idx);
@@ -312,6 +314,46 @@ function renderDay(data) {
   // Update page title
   const pageDate = formatFullDate(data.dates && data.dates[0], data.title || meta.label);
   document.title = `${pageDate} — The 1787 Convention`;
+}
+
+// ============================================================
+// Notes source toggle (Madison ↔ King)
+// ============================================================
+function initNotesToggle() {
+  document.getElementById('toggle-madison')
+    ?.addEventListener('click', () => setSource('madison'));
+  document.getElementById('toggle-king')
+    ?.addEventListener('click', () => setSource('king'));
+}
+
+function setSource(source) {
+  currentSource = source;
+  const madisonBtn = document.getElementById('toggle-madison');
+  const kingBtn    = document.getElementById('toggle-king');
+  madisonBtn?.classList.toggle('notes-toggle__pill--active', source === 'madison');
+  madisonBtn?.setAttribute('aria-pressed', String(source === 'madison'));
+  kingBtn?.classList.toggle('notes-toggle__pill--active', source === 'king');
+  kingBtn?.setAttribute('aria-pressed', String(source === 'king'));
+  const data = dayCache[currentDayId];
+  if (data) renderNotesBody(data);
+}
+
+function renderNotesBody(data) {
+  const notesSection = document.querySelector('.day-notes-section');
+  const bottomNav    = document.querySelector('.day-nav:not(.day-nav--top)');
+  const bodyEl       = document.getElementById('debate-body');
+  const titleEl      = document.getElementById('notes-section-title');
+  const html         = currentSource === 'king' ? data.kingContentHtml : data.contentHtml;
+
+  if (html) {
+    if (bodyEl)       bodyEl.innerHTML = stripLeadingH4(html);
+    if (notesSection) notesSection.style.display = '';
+    if (bottomNav)    bottomNav.style.display = '';
+    if (titleEl)      titleEl.textContent = currentSource === 'king' ? "King's Notes" : "Madison's Notes";
+  } else {
+    if (notesSection) notesSection.style.display = 'none';
+    if (bottomNav)    bottomNav.style.display = 'none';
+  }
 }
 
 // ============================================================
