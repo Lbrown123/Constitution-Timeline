@@ -74,7 +74,8 @@
       ],
       "label": "May 31",
       "month": 5,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_601",
@@ -104,7 +105,8 @@
       ],
       "label": "June 4",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_605",
@@ -144,7 +146,8 @@
       ],
       "label": "June 8",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_609",
@@ -154,7 +157,8 @@
       ],
       "label": "June 9",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_611",
@@ -224,7 +228,8 @@
       ],
       "label": "June 18",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_619",
@@ -244,7 +249,8 @@
       ],
       "label": "June 20",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_621",
@@ -284,7 +290,8 @@
       ],
       "label": "June 25",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_626",
@@ -304,7 +311,8 @@
       ],
       "label": "June 27",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_628",
@@ -314,7 +322,8 @@
       ],
       "label": "June 28",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_629",
@@ -324,7 +333,8 @@
       ],
       "label": "June 29",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_630",
@@ -334,7 +344,8 @@
       ],
       "label": "June 30",
       "month": 6,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_702",
@@ -354,7 +365,8 @@
       ],
       "label": "July 5",
       "month": 7,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_706",
@@ -365,6 +377,17 @@
       "label": "July 6",
       "month": 7,
       "notable": null
+    },
+    {
+      "id": "debates_707",
+      "file": "debates/debates_707.json",
+      "dates": [
+        "1787-07-07"
+      ],
+      "label": "July 7",
+      "month": 7,
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_709",
@@ -425,6 +448,17 @@
       "label": "July 14",
       "month": 7,
       "notable": null
+    },
+    {
+      "id": "debates_715",
+      "file": "debates/debates_715.json",
+      "dates": [
+        "1787-07-15"
+      ],
+      "label": "July 15",
+      "month": 7,
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_716",
@@ -534,7 +568,8 @@
       ],
       "label": "Aug 7",
       "month": 8,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_808",
@@ -544,7 +579,8 @@
       ],
       "label": "Aug 8",
       "month": 8,
-      "notable": null
+      "notable": null,
+      "hasKingNotes": true
     },
     {
       "id": "debates_809",

@@ -81,6 +81,7 @@ RAW_PATTERNS = [
     # Madison wrote his name several ways: "Govr. Morris", "Mr. Gouverneur",
     # "Mr. GOVERNR", "Mr. GOVERNUr", "Mr. Govr", etc.
     (r"Govr?\.?\s+Morris\b",                "gouverneur_morris"),
+    (r"G\.?\s+Morris\b",                    "gouverneur_morris"),
     (r"Mr\.?\s+Govern(?:eur|r|nr|ur)?\b",   "gouverneur_morris"),
     (r"Mr\.?\s+Gouverneur\b",               "gouverneur_morris"),
 
@@ -345,6 +346,11 @@ RAW_PATTERNS = [
     (r"\bMadison\b",                        "james_madison_jr"),
     (r"\bEllsworth\b",                      "oliver_ellsworth"),
     (r"\bElseworth\b",                      "oliver_ellsworth"),
+    (r"\bSherman\b",                         "roger_sherman"),
+    (r"\bMason\b",                          "george_mason"),
+    (r"\bButler\b",                         "pierce_butler"),
+    (r"\bMartin\b",                         "luther_martin"),
+    (r"\bJohnson\b",                        "william_samuel_johnson"),
     (r"\bGerry\b",                          "elbridge_gerry"),
     (r"\bRandolph\b",                       "edmund_j_randolph"),
     (r"\bDickinson\b",                      "john_dickinson"),
@@ -490,7 +496,7 @@ def main() -> None:
         # while contentHtml uses 18th-century "Mr. LastName" address forms.
         file_changed = False
         total_delta  = 0
-        for field in ("contentHtml", "summary"):
+        for field in ("contentHtml", "kingContentHtml", "summary"):
             original = data.get(field, "")
             if not original:
                 continue
